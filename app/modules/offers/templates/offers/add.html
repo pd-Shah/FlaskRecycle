@@ -1,0 +1,7 @@
+{% extends "offers/_layout.html" %}
+{% block subtitle %}{{ gettext("Create a new offer") }}{% endblock %}
+{% block content %}
+{% with post_url='offers.add_post', cancel_url='offers.index' %}
+    {% include 'offers/_form_offer.html' ignore missing with context %}
+{% endwith %}
+{% endblock %}

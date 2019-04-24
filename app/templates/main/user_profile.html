@@ -1,0 +1,92 @@
+{% extends "layouts/page.html" %}
+{% block title %}Offers by {{ user.first_name}} {{ user.last_name}}{% endblock %}
+{% block subtitle %}{% endblock %}
+
+{% block content %}
+<div class="columns is-multiline">
+  {% for result in offers %}
+  <div class="column is-4">
+    <a href="{{ url_for('offers.view_public', offer_id=result.id) }}">
+      <div class="card">
+        <div class="card-image">
+          {% if result.images %}
+          {% for image in result.images %}
+            <div class="is-offer-image" ></div>
+            <figure class="image is-4by3" style="background-image: url(http://recycl-images.s3.amazonaws.com/{{ image.image }})">
+            </figure>
+          {% endfor %}
+          {% else %}
+          <figure class="image is-4by3">
+            <img src="/static/images/placeholder.png" alt="Placeholder image">
+          </figure>
+          {% endif %}
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-6">
+                {{ rec_category.get(result.category) }} <small>({{ rec_condition.get(result.condition) }})</small> {{ result.quantity }}{{ rec_unit.get(result.unit) }}
+              </p>
+              <p class="subtitle is-7" style="margin-bottom:0.5rem;">{{ result.summary | truncate(20) }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
+{% block sidebar %}
+{% if current_user.is_authenticated %}
+<h3 class="title is-5 has-text-grey-light">{{ gettext("Profile") }}</h3>
+
+{% if user.profile_image %}
+<div class="is-profile-image" style="background-image:url('http://recycl-images.s3.amazonaws.com/{{ user.profile_image }}')"></div>
+{% else %}
+<figure class="image is-128x128">
+  <img src="/static/images/placeholder.png">
+</figure>
+{% endif %}
+
+<ul>
+  <li><b>{{ user.first_name}} {{ user.last_name}}</b></li>
+  <li>{{ user.company_name }}</li>
+  <li>
+    <span class="icon">
+      <i class="io ion-pin"></i>
+    </span>
+    {{ countries.get(user.company_country) }}
+  </li>
+</ul>
+<ul>
+  <li>
+    <span class="icon">
+      <i class="io ion-chatboxes"></i>
+    </span>
+    {{ gettext("an hour ago") }} 
+  </li>
+  <li>
+    <span class="icon">
+      <i class="io ion-person-add"></i>
+    </span>
+    {{ user.created.strftime('%d.%m.%Y') }}
+  </li>
+</ul>
+  {% if current_user.id != user.id %}
+    <p style="margin-top:1rem;">{{ gettext("To send a message to ") }}{{ user.first_name}} {{ user.last_name}}, {{ gettext("open one of the offers.") }}</p>
+    <br />
+    <form action="" method="post">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+      {% if current_user.is_following(user) %}
+        <input type="submit" name="follow" class="button is-capitalized" value="unfollow">
+      {% else %}
+        <input type="submit" name="follow" class="button is-capitalized" value="follow">
+      {% endif%}
+    </form>
+  {% endif %}
+  <p class="help">{{ gettext("Users that you follow, appear in your contact list. You may optionally be notified, about new offers, from that user.") }}</p>
+{% else %}
+<p>{{ gettext("You must be logged-in, to see user profiles. ") }}<a href="">{{ gettext("Register now") }}</a>. {{ gettext("It's free, and only takes a few seconds.") }}</p>
+{% endif %}
+{% endblock %}

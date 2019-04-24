@@ -1,0 +1,27 @@
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+{% for field in form %}
+{% if field.id != "csrf_token" and field.type != "HiddenField" %}
+<div class="field">
+  {% if field.type != "SubmitField" %}<label class="label">{{ field.label }} {% if field.flags.required %}*{% endif %}</label>{% endif %}
+  <div class="control">
+    {% if field.type == "TextAreaField" %}
+    {{ field(class_="textarea") }}
+    {% elif field.type == "SubmitField" %}
+    {{ field(class_="button is-primary") }}
+    {% else %}
+    {{ field(class_="input") }}
+    {% endif %}
+  </div>
+  {{ field.error }}
+</div>
+{% endif %}
+{% endfor %}

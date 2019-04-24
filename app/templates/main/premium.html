@@ -1,0 +1,61 @@
+{% extends "layouts/page.html" %}
+{% block title %}Premium{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <div class="content">
+    <p>{{ gettext("Join Recycle, the world's recycling market place, and expand your recycling business to new markets. Premium subscribers benefit from hands-on support, and maximum reach, with unlimited messages, offers and built-in tasks, to stay on top of everything.") }}</p>
+  </div>
+  {% if category is defined %}
+  {{ rec_category.get(category)}}
+  {% else %}
+  {% endif %}
+
+  <table class="comparison">
+    <thead>
+      <tr>
+        <td class="type"></td>
+        <td class="standard">{{ gettext("Standard") }}</td>
+        <td class="premium">{{ gettext("Premium") }}</td>
+      </tr>
+    <tbody>
+      <tr>
+        <td class="type has-text-weight-bold">{{ gettext("Conversations") }}</td>
+        <td class="standard">{{ gettext("5 total") }}</td>
+        <td class="premium has-text-weight-bold">{{ gettext("Unlimited") }}</td>
+      </tr>
+      <tr>
+        <td class="type has-text-weight-bold">{{ gettext("Offers") }}</td>
+        <td class="standard">{{ gettext("5 total") }}</td>
+        <td class="premium has-text-weight-bold">{{ gettext("Unlimited") }}</td>
+      </tr>
+      <tr>
+        <td class="type has-text-weight-bold">{{ gettext("Tasks") }}</td>
+        <td class="standard">/</td>
+        <td class="premium has-text-weight-bold">{{ gettext("Yes") }}</td>
+      </tr>
+      <tr>
+        <td class="type has-text-weight-bold">{{ gettext("Followers") }}</td>
+        <td class="standard">/</td>
+        <td class="premium has-text-weight-bold">{{ gettext("Unlimited") }}</td>
+      </tr>
+      <tr>
+        <td class="type has-text-weight-bold">{{ gettext("Subscription") }}</td>
+        <td class="standard">FREE</td>
+        <td class="premium has-text-weight-bold">10€ / {{ gettext("Month") }}</td>
+      </tr>
+      <tr>
+        <td class="type"></td>
+        <td class="standard">
+          <a href="{{ url_for('account.register') }}" class="button is-fullwidth has-text-white">{{ gettext("Sign-Up") }}</a>
+        </td>
+        <td class="premium">
+          <a href="{{ url_for('account.register') }}" class="button is-fullwidth has-text-white">{{ gettext("Sign-Up") }}</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+{% endblock %}

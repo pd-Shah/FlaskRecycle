@@ -1,0 +1,79 @@
+<div class="box">
+  {% if contact_id is defined %}
+  <form method="POST" enctype="multipart/form-data" action="{{ url_for(post_url, task_id=task_id, contact_id=contact_id, return_url=return_url)}}">
+  {% elif return_url is defined %}
+  <form method="POST" enctype="multipart/form-data" action="{{ url_for(post_url, task_id=task_id, return_url=return_url)}}">
+  {% else %}
+  <form method="POST" enctype="multipart/form-data" action="{{ url_for(post_url, task_id=task_id)}}">
+  {% endif %}
+    <div class="columns" id="taskForm">
+      <div class="column is-9">
+
+        {{ form_task.csrf_token }}
+
+        <div class="field">
+          <label class="label">{{ form_task.summary.label }}</label>
+          <div class="control">
+            {{ form_task.summary(class_="input", placeholder="follow-up with that important client") }}
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">{{ form_task.description.label }}</label>
+          <div class="control">
+            {{ form_task.description(class_="textarea", style="height:194px;") }}
+          </div>
+        </div>
+
+        <!--
+
+        <div class="field">
+          <label class="label">{{ form_task.due.label }}</label>
+          <div class="control">
+            {{ form_task.due(class_="input", placeholder="tomorrow at 4pm") }}
+          </div>
+          <p class="help">Use natural language to define dates; example: Wednesday at 5PM.</p>
+        </div>
+
+        -->
+
+      </div>
+      <div class="column">
+
+        <div class="field">
+          <label class="label">{{ form_task.priority.label }}</label>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              {{ form_task.priority() }}
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">{{ form_task.status.label }}</label>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              {{ form_task.status() }}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="button is-primary">{{ gettext("Save") }}</button>
+      </div>
+      <div class="control">
+        {% if return_url %}
+        <a class="button is-text" href="{{ return_url }}">{{ gettext("Cancel") }}</a>
+        {% elif task_id is not none %}
+        <a class="button is-text" href="{{ url_for(cancel_url, task_id=task_id)}}">{{ gettext("Cancel") }}</a>
+        {% else %}
+        <a class="button is-text" href="{{ url_for(cancel_url)}}">{{ gettext("Cancel") }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </form>
+</div>

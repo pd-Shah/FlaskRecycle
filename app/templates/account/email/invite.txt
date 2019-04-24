@@ -1,0 +1,15 @@
+{{ gettext("Dear ") }} {{ user.full_name() }},
+
+{{ gettext("You are invited to join ") }} {{ config.APP_NAME }}!
+
+{{ gettext("To set your password, please click on the following link: ") }}
+
+{{ invite_link }}
+
+{{ gettext("Once completed, please log in as ") }} {{ user.email }} {{ gettext(" with the password you set.") }}
+
+{{ gettext("Sincerely, ") }}
+
+{{ gettext("The ") }} {{ config.APP_NAME }} {{ gettext(" Team") }}
+
+{{ gettext("Note: replies to this email address are not monitored.") }} 

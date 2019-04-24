@@ -1,0 +1,30 @@
+<div class="list-item" id="message_{{ conv.id }}" >
+  <div class="level">
+    <div class="level-left">
+      <div class="level-item">
+        <span class="icon">
+            <i class="io ion-email"></i>
+        </span>
+      </div>
+      <div class="level-item">
+        <a href="{{ url_for('messages.conversation', conversation_id=conv.id) }}">
+          {{ conv.subject }}
+        </a>
+      </div>
+      <div class="level-item">
+        <small>
+        {% if conv.author_id != current_user.id %}
+          with <a href="{{ url_for('main.user_profile', user_id=conv.author.id)}}">{{  conv.author.first_name }} {{  conv.author.last_name }}</a>
+        {% else %}
+          with <a href="{{ url_for('main.user_profile', user_id=conv.offer.author.id)}}">{{ conv.offer.author.first_name }} {{ conv.offer.author.last_name }}</a>
+        {% endif %}
+        </small>
+      </div>
+    </div>
+    <div class="level-right">
+      <div class="level-item">
+        <small>{{ conv.created.strftime('%c') }}</small>
+      </div>
+    </div>
+  </div>
+</div>

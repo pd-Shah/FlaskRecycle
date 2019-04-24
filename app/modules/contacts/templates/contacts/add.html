@@ -1,0 +1,15 @@
+{% extends "contacts/_layout.html" %}
+{% block subtitle %}Add a new contact{% endblock %}
+{% block content %}
+<form method="POST" action="{{ url_for('contacts.add')}}">
+  {% include '/contacts/_form.html' %}
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-primary">{{ gettext("Save") }}</button>
+    </div>
+    <div class="control">
+      <a href="{{ url_for('contacts.index')}}" class="button is-text">{{ gettext("Cancel") }}</a>
+    </div>
+  </div>
+</form>
+{% endblock %}

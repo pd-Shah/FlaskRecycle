@@ -1,0 +1,17 @@
+{% extends "layouts/account.html" %}
+{% block title %}Recycling{% endblock %}
+{% block custom_footer_scripts %}
+<meta name="csrf_token" content="{{ csrf_token()|safe }}">
+<script>
+let csrf_token = "{{ csrf_token() }}";
+let request = superagent;
+
+var app = new Vue({
+  mixins: [actionMixin],
+  el: '#app',
+  data: {
+    actionAPI: "/api/v1/offers"
+  }
+  });
+</script>
+{% endblock %}

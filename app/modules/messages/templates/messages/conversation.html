@@ -1,0 +1,108 @@
+{% extends "messages/_layout.html" %}
+{% block title %}Messages{% endblock %}
+{% block subtitle %}Offer: {{ conversation.subject }}{% endblock %}
+{% block content %}
+
+{% for message in messages %}
+{% if loop.first %}
+  <div class="messages has-box-shadow">
+{% endif %}
+    <div class="is-message" id="message_{{ message.id }}">
+      {% if message.author_id != current_user.id %}
+      <p>
+        {{ message.message }}
+        <br><small>{{ message.author.first_name }} {{ message.author.last_name }} - {{ message.created.strftime('%c') }}</small>
+      </p>
+      {% else %}
+      <p class="author">
+        {{ message.message }}
+        <br><small> {{ gettext("You - ") }}{{ message.created.strftime('%c') }}</small>
+      </p>
+      {% endif %}
+    </div>
+{% if loop.last %}
+  </div>
+  <p class="help">{{ gettext("To see the latest messages, refresh with ") }} <b>F5</b>.</p>
+{% endif %}
+{% endfor %}
+<form method="POST" action="{{ url_for('messages.conversation', conversation_id=conversation.id) }}">
+
+  {{ form_message.csrf_token }}
+
+  <div class="field">
+    <div class="control">
+      {{ form_message.message(class_="textarea", style="height:80px;", placeholder="Kindly follow-up.") }}
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-primary">{{ gettext("Add response") }}</button>
+    </div>
+  </div>
+
+</form>
+{% endblock %}
+{% block sidebar %}
+
+<div class="card">
+  <div class="card-image">
+    <figure class="image is-4by3">
+      <img src="/static/images/placeholder.png" alt="Placeholder image">
+    </figure>
+  </div>
+  <div class="card-content">
+
+    <ul class="is-key-value-list compressed">
+
+      <li>
+        {{ gettext("Offer by ") }}<b><a href="{{ url_for('main.user_profile', user_id=offer.author.id)}}">{{ offer.author.first_name }} {{ offer.author.last_name }}</a></b>
+      </li>
+
+      <li>
+        <span class="is-key">
+          {{ gettext("Price") }}
+        </span>
+        <span class="is-value">
+          € {{ offer.unit_price }} / {{ rec_unit.get(offer.unit) }}
+        </span>
+      </li>
+      <li>
+        <span class="is-key">
+          {{ gettext("Quantity") }}
+        </span>
+        <span class="is-value">
+          {{ offer.quantity }} {{ rec_unit.get(offer.unit) }}
+        </span>
+      </li>
+      <li>
+        <span class="is-key">
+          {{ gettext("Condition") }}
+        </span>
+        <span class="is-value">
+          {{ rec_condition.get(offer.condition) }}
+        </span>
+      </li>
+      <li>
+        <span class="is-key">
+          {{ gettext("Payment") }}
+        </span>
+        <span class="is-value">
+          {{ rec_payment.get(offer.payment_method) }}
+        </span>
+      </li>
+      <li>
+        <span class="is-key">
+          {{ gettext("Terms") }}
+        </span>
+        <span class="is-value">
+          {{ rec_pricing_terms.get(offer.pricing_terms) }}
+        </span>
+      </li>
+    </ul>
+    <div class="content">
+      <p><a class="button is-outlined is-fullwidth" href="{{ url_for('offers.view_public', offer_id=offer.id)}}">{{ gettext("Open Offer") }}</a></p>
+    </div>
+  </div>
+</div>
+{% endblock %}

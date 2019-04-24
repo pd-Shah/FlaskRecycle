@@ -1,0 +1,58 @@
+<div class="list-item" id="task_{{ task.id }}" >
+  <div class="level">
+    <div class="level-left">
+      <div class="level-item">
+        <span class="icon">
+          {% if task.status != 6 %}
+            <i class="io ion-ios-circle-outline" v-on:click="updateDocument('updateStatus', {{ task.id }}, 6)"></i>
+          {% else %}
+            <i class="io ion-ios-checkmark-outline" v-on:click="updateDocument('updateStatus', {{ task.id }}, 5)"></i>
+          {% endif %}
+        </span>
+      </div>
+      <div class="level-item">
+        <a href="{{ url_for('tasks.view', task_id=task.id) }}">
+          {{ task.summary }}
+        </a>
+      </div>
+      <div class="level-item">
+        <span class="has-text-grey-light"><small>{% if task.updated is not none %}{{ gettext("Updated:") }} {{ task.updated.strftime('%d.%m.%Y') }}{% else %}{{ gettext("Added") }}: {{ task.created.strftime('%d.%m.%Y') }}{% endif %}</small></span>
+      </div>
+    </div>
+    <div class="level-right">
+      <div class="level-item">
+        <span class="tag has-priority-{{ task.priority }}">{{ priority_dict.get(task.priority) }}</span>
+      </div>
+      <div class="level-item">
+        <span class="tag has-status-{{ task.status }}">{{ status_dict.get(task.status) }}</span>
+      </div>
+      {% for user in task.assigned %}
+      <div class="level-item">
+        <figure class="image is-24x24">
+          <img class="is-rounded" src="{{ url_for('static', filename='images/placeholder.png') }}" alt="{{ user.first_name }}">
+        </figure>
+      </div>
+      {% endfor %}
+      {% if task.due is not none %}
+      <div class="level-item">
+        <span>{{ task.due.strftime('%d.%m.%Y') }}</span>
+      </div>
+      {% endif %}
+      <div class="level-item">
+        {% if return_url %}
+        <a href="{{ url_for(link_url, task_id=task.id, return_url=return_url.format(return_id)) }}">
+          <span class="icon">
+            <i class="io ion-edit has-text-grey-light"></i>
+          </span>
+        </a>
+        {% else %}
+        <a href="{{ url_for(link_url, task_id=task.id, return_url='/account/tasks/') }}">
+          <span class="icon">
+            <i class="io ion-edit has-text-grey-light"></i>
+          </span>
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+{% extends "tasks/_layout.html" %}
+{% block title %}Tasks{% endblock %}
+
+<!-- This is the search component -->
+
+{% block search %}
+{% include 'tasks/_search.html' %}
+{% endblock %}
+
+<!-- This is the action component; example: New Task -->
+
+{% block action %}
+<p>
+  <a href="{{ url_for('tasks.add')}}" class="button is-primary is-fullwidth">{{ gettext("New Task") }}</a>
+</p>
+{% endblock %}
+
+{% block content %}
+{% for task in tasks %}
+{% if loop.first %}
+<div class="list">
+{% endif %}
+{% with link_url='tasks.edit' %}
+    {% include 'tasks/_list_item.html' ignore missing with context %}
+{% endwith %}
+{% if loop.last %}
+</div>
+{% endif %}
+{% else %}
+<p class="has-nothing has-text-centered">{{ gettext("You haven't added any tasks yet.") }}</p>
+{% endfor %}
+{% endblock %}

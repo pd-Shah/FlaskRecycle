@@ -1,0 +1,14 @@
+{% extends "messages/_layout.html" %}
+{% block content %}
+{% for conv in all %}
+{% if loop.first %}
+<div class="list">
+{% endif %}
+  {% include 'messages/_list.html'%}
+{% if loop.last %}
+</div>
+{% endif %}
+{% else %}
+<p class="has-nothing has-text-centered"><b>{{ gettext("You haven't send or received any messages.") }}</b></p>
+{% endfor %}
+{% endblock %}

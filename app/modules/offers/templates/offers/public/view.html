@@ -1,0 +1,81 @@
+{% extends "layouts/page.html" %}
+{% block title %}{{ offer.summary }}{% endblock %}
+{% block content %}
+
+<div class="box">
+
+  {% include 'offers/_details.html' %}
+
+</div>
+
+{% if new_message %}
+  <h3 class="title is-3 has-text-grey-light" id="comments">{{ gettext("Send a Message") }}</h3>
+  <h4 class="subtitle is-4 has-text-grey-light">to {{ seller.first_name }} {{ seller.last_name }}</h4>
+
+  <form method="POST" action="{{ url_for('offers.view_public', offer_id=offer.id) }}">
+
+    {{ form_message.csrf_token }}
+
+    <div class="field">
+      <div class="control">
+        {{ form_message.message(class_="textarea", style="height:80px;", placeholder="Hi {}, I'm looking to buy {} {} of {}. What's the next step?".format(seller.first_name, offer.quantity, rec_unit.get(offer.unit), rec_category.get(offer.category))) }}
+      </div>
+      <span class="help">{{ gettext("Details related to this offer, will be forwarded to the recipient.") }}</span>
+    </div>
+
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="button is-primary">{{ gettext("Send Message") }}</button>
+      </div>
+    </div>
+
+  </form>
+{% endif %}
+
+{% endblock %}
+{% block sidebar %}
+<h3 class="title is-5 has-text-grey-light">{{ gettext("Seller") }}</h3>
+
+{% if seller.profile_image %}
+<div class="is-profile-image" style="background-image:url('http://recycl-images.s3.amazonaws.com/{{ seller.profile_image }}')"></div>
+{% else %}
+<figure class="image is-128x128">
+  <img src="/static/images/placeholder.png">
+</figure>
+{% endif %}
+
+{% if current_user.is_authenticated %}
+<ul>
+  <li><b><a href="{{ url_for('main.user_profile', user_id=seller.id)}}">{{ seller.first_name }} {{ seller.last_name }}</a></b></li>
+  <li>{{ seller.company_name }}</li>
+  <li>
+    <span class="icon">
+      <i class="io ion-pin"></i>
+    </span>
+    {{ countries.get(seller.company_country) }}
+  </li>
+</ul>
+<ul>
+  <li>
+    <span class="icon">
+      <i class="io ion-chatboxes"></i>
+    </span>
+    {{ gettext("an hour ago") }}
+  </li>
+  <li>
+    <span class="icon">
+      <i class="io ion-person-add"></i>
+    </span>
+    {{ seller.created.strftime('%d.%m.%Y') }}
+  </li>
+</ul>
+{% if current_user.id != seller.id %}
+<a class="button" style="margin-top:1rem;" href="{{ url_for('offers.view_public', _anchor='message', offer_id=offer.id, new_message=True)}}">{{ gettext("Send Message") }}</a>
+{% else %}
+<a class="button" style="margin-top:1rem;" href="{{ url_for('offers.edit', offer_id=offer.id) }}">{{ gettext("Edit this offer") }}</a>
+{% endif %}
+<span style="color:#fff;">{{ seller.email }}</span>
+{% else %}
+<b><a href="{{ url_for('account.register')}}">{{ gettext("Register for free") }} </a></b>, {{ gettext("to see contact details and send messages.") }}
+{% endif %}
+{% endblock %}

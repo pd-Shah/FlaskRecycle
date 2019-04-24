@@ -1,0 +1,29 @@
+{% extends "account/_layout.html" %}
+{% block subtitle %}Change email address{% endblock %}
+{% block page %}
+<div class="content">
+  <p>{{ gettext("In order to update your email, you have to verify the new email. Once you've updated your email, please check your inbox for further instructions.") }}</p>
+</div>
+
+<form method="POST" action="">
+  <div class="field">
+    <label class="label">{{ form.email.label }}</label>
+    <div class="control">
+      {{ form.email(class_="input") }}
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">{{ form.password.label }}</label>
+    <div class="control">
+      {{ form.password(class_="input") }}
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-primary">{{ gettext("Update email") }}</button>
+    </div>
+  </div>
+</form>
+{% endblock %}

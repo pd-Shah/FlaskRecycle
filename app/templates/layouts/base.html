@@ -1,0 +1,42 @@
+{% import 'macros/nav_macros.html' as nav %}
+<!DOCTYPE html>
+<html>
+  <head>
+      {% include 'partials/_head.html' %}
+      {% block custom_head_tags %}{% endblock %}
+  </head>
+  <body>
+
+  <div id="app">
+    {% block nav %}{% endblock %}
+    {% block body %}{% endblock %}
+  </div>
+
+  {% if csrf_token()|safe %}
+      <div style="visibility: hidden; display: none">
+        <input type="hidden" id="csrf_token" name="csrf_token" value="{{ csrf_token()|safe }}">
+      </div>
+  {% endif %}
+
+  {% block footer %}{% endblock %}
+  {% include 'partials/_footer_scripts.html' %}
+  {% block custom_footer_scripts %}{% endblock %}
+
+  </body>
+</html>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+  if ($navbarBurgers.length > 0) {
+    $navbarBurgers.forEach( el => {
+      el.addEventListener('click', () => {
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
+        el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+      });
+    });
+  }
+});
+</script>

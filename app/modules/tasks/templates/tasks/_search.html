@@ -1,0 +1,40 @@
+<!--
+{% if tasks|length != 0 %}
+<div class="level-item">
+  <div class="field">
+    <div class="control">
+      <div class="select is-small">
+        <select v-model="search.priority" v-on:change="runSearch()">
+          {% for key, value in priority_dict.items() %}
+          <option value="{{ key }}">{{ value }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="level-item">
+  <div class="field">
+    <div class="control">
+      <div class="select is-small">
+        <select name="category" v-model="search.status" v-on:change="runSearch()">
+          {% for key, value in status_dict.items() %}
+          <option value="{{ key }}">{{ value }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="level-item">
+  <div class="field has-addons is-expanded">
+    <div class="control">
+      <input class="input is-small" id="search" v-model="search.keyword" type="text" placeholder="Search in tasks" v-on:keypress:enter="runSearch()">
+    </div>
+    <div class="control">
+      <button class="button is-light is-small" v-on:click="runSearch()">Search</button>
+    </div>
+  </div>
+</div>
+{% endif %}
+-->

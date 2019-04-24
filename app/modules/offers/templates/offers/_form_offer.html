@@ -1,0 +1,144 @@
+<form method="POST" action="{{ url_for(post_url, offer_id=offer_id) }}" enctype="multipart/form-data">
+  <div class="columns" id="taskForm">
+    <div class="column is-9">
+
+      <div class="box">
+        {{ form.csrf_token }}
+
+        <div class="field">
+          <label class="label">{{ form.summary.label }}</label>
+          <div class="control">
+            {{ form.summary(class_="input", placeholder="") }}
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">{{ form.category.label }}</label>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  {{ form.category(class_="") }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="field">
+              <label class="label">{{ form.condition.label }}</label>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  {{ form.condition(class_="") }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">{{ form.quantity.label }}</label>
+              <div class="control">
+                {{ form.quantity(class_="input", placeholder="") }}
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="field">
+              <label class="label">{{ form.unit.label }}</label>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  {{ form.unit(class_="") }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">{{ form.unit_price.label }}</label>
+              <div class="control">
+                {{ form.unit_price(class_="input", placeholder="") }}
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="field">
+              <label class="label">{{ form.pricing_terms.label }}</label>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  {{ form.pricing_terms(class_="") }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">{{ form.place_of_delivery.label }}</label>
+          <div class="control">
+            {{ form.place_of_delivery(class_="input", placeholder="") }}
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">{{ form.payment_method.label }}</label>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  {{ form.payment_method(class_="") }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="field">
+              <label class="label">{{ form.target_market.label }}</label>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  {{ form.target_market(class_="input") }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">{{ form.description.label }}</label>
+          <div class="control">
+            {{ form.description(class_="textarea", placeholder="") }}
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">{{ gettext("Picture") }}</label>
+          <div class="control">
+            <input type="file" id="images" name="images">
+          </div>
+          <p class="help">{{ gettext("Allowed: JPG, PNG, GIF; To replace an existing image, simply upload a new one.") }}</p>
+        </div>
+
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-primary">{{ gettext("Save") }}</button>
+        </div>
+        <div class="control">
+          {% if return_url %}
+          <a class="button is-text" href="{{ return_url }}">{{ gettext("Cancel") }}</a>
+          {% elif offer_id is not none %}
+          <a class="button is-text" href="{{ url_for(cancel_url, offer_id=offer_id)}}">{{ gettext("Cancel") }}</a>
+          {% else %}
+          <a class="button is-text" href="{{ url_for(cancel_url)}}">{{ gettext("Cancel") }}</a>
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</form>

@@ -1,0 +1,84 @@
+{% extends "contacts/_layout.html" %}
+{% block title %}Contact{% endblock %}
+{% block subtitle %}Communication & Tasks{% endblock %}
+
+{% block content %}
+{% for task in tasks %}
+{% if loop.first %}
+<div class="list">
+{% endif %}
+{% with link_url='tasks.edit', return_url='/account/contacts/view/{}'.format(contact.id) %}
+  {% include 'tasks/_list_item.html' ignore missing with context %}
+{% endwith %}
+{% if loop.last %}
+</div>
+{% endif %}
+{% else %}
+<p class="has-text-centered">{{ gettext("You haven't added any tasks yet.") }}</p>
+{% endfor %}
+
+<nav class="level">
+  <div class="level-item">
+    <a class="button is-light is-fullwidth" href="{{ url_for('tasks.add', contact_id=contact.id, return_url='/account/contacts/view/{}'.format(contact.id)) }}">
+      <span class="icon">
+        <i class="io ion-checkmark-circled"></i>
+      </span>
+      <span>{{ gettext("Add Task") }}</span>
+    </a>
+  </div>
+  <!--
+  <div class="level-item">
+    <a class="button is-light is-fullwidth">
+      <span class="icon">
+        <i class="io ion-calendar"></i>
+      </span>
+      <span>Add Event</span>
+    </a>
+  </div>
+  -->
+  <div class="level-item">
+    <a class="button is-light is-fullwidth" href="{{ url_for('contacts.message', contact_id=contact.id, return_url='/account/contacts/view/{}'.format(contact.id)) }}">
+      <span class="icon">
+        <i class="io ion-email"></i>
+      </span>
+      <span>{{ gettext("Send Message") }}</span>
+    </a>
+  </div>
+  <div class="level-item">
+    <a class="button is-light is-fullwidth" href="{{ url_for('emails.send', contact_id=contact.id, return_url='/account/contacts/view/{}'.format(contact.id)) }}">
+      <span class="icon">
+        <i class="io ion-close"></i>
+      </span>
+      <span>{{ gettext("Unfollow") }}</span>
+    </a>
+  </div>
+</nav>
+
+
+{% with module='contacts', related=contact.id %}
+  {% include 'partials/_comments.html' %}
+{% endwith %}
+
+{% endblock %}
+
+{% block sidebar %}
+
+  <div class="content">
+    <p>
+      {% if contact.first_name %}<b>{{ contact.first_name }}</b>{% endif %}{% if contact.last_name %} <b>{{ contact.last_name }}</b>{% endif %}
+      {% if contact.title %}<br>{{ contact.title }}{% endif %}
+      {% if contact.org %}<br><smal>{{ contact.org }}</smal>{% endif %}
+    </p>
+    <p>
+      {% if contact.email %}<a href="mailto:{{ contact.email }}">{{ contact.email }}</a>{% endif %}
+      {% if contact.phone %}<br><a href="tel:{{ contact.phone }}">{{ contact.phone }}</a>{% endif %}
+      {% if contact.mobile %}<br><a href="tel:{{ contact.mobile }}">{{ contact.mobile }}</a>{% endif %}
+    </p>
+    {% if contact.description %}
+    <p>
+      {{ contact.description }}
+    </p>
+    {% endif %}
+  </div>
+
+{% endblock %}

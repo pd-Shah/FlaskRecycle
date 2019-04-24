@@ -1,0 +1,58 @@
+{% extends "offers/_layout.html" %}
+{% block action %}
+<div class="buttons">
+  <a href="{{ url_for('offers.add') }}" class="button is-primary">{{ gettext("New Offer") }}</a>
+  <a href="{{ url_for('offers.index_matchings') }}" class="button is-text">{{ gettext("Offer Matching") }}</a>
+</div>
+{% endblock %}
+{% block content %}
+{% for offer in offers %}
+{% if loop.first %}
+<div class="list">
+{% endif %}
+  <div class="list-item" id="offer_{{ offer.id }}">
+    <div class="level">
+      <div class="level-left">
+        <div class="level-item">
+          <span>
+            {{ rec_category.get(offer.category) }}
+          </span>
+        </div>
+        <div class="level-item">
+          <a href="{{ url_for('offers.view', offer_id=offer.id) }}"><span>{{ offer.summary }}</span></a>
+        </div>
+        <div class="level-item">
+          <span class="has-text-grey-light">
+            <small>{{ gettext("Quantity:") }} {{ offer.quantity }} {{ rec_unit.get(offer.unit) }}</small>
+          </span>
+        </div>
+        <div class="level-item">
+          <span class="has-text-grey-light">
+            <small>{% if offer.updated is not none %}{{ gettext("Updated:") }} {{ offer.updated.strftime('%d.%m.%Y') }}{% else %}{{ gettext("Added:") }} {{ offer.created.strftime('%d.%m.%Y') }}{% endif %}</small>
+          </span>
+        </div>
+      </div>
+      <div class="level-right">
+        {% if offer.published %}
+        <div class="level-item">
+          <span class="has-text-grey-light">
+            <small>{{ gettext("PUBLIC") }}</small>
+          </span>
+        </div>
+        {% endif %}
+        <div class="level-item">
+          <span class="has-text-grey-light">
+            <small>€ {{ offer.unit_price }} / {{ rec_unit.get(offer.unit) }} ({{ rec_pricing_terms.get(offer.pricing_terms) }})</small>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+{% if loop.last %}
+</div>
+{% endif %}
+{% else %}
+<p class="has-nothing has-text-centered">{{ gettext("You haven't added any offers yet.") }}</p>
+<p class="has-text-centered">{{ gettext("Any offers you publish, automatically appear on ") }}<a href="https://recycl.org">recycl.org</a></p>
+{% endfor %}
+{% endblock %}

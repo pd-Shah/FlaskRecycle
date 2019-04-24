@@ -1,0 +1,18 @@
+<p>{{ gettext("Dear ") }} {{ user.full_name() }},</p>
+
+<p>{{ gettext("Welcome to ") }} <b>{{ config.APP_NAME }}</b>!</p>
+
+<p>
+  {{ gettext("To confirm your account, please ") }}
+   <a href="{{ confirm_link }}">{{ gettext(" click here") }}</a>.
+ </p>
+
+<p>{{ gettext("Alternatively, you can paste the following link in your browser's address bar: ") }}</p>
+
+<p>{{ confirm_link }}</p>
+
+<p>{{ gettext("Sincerely, ") }}</p>
+
+<p>{{ gettext("The ") }}  {{ config.APP_NAME }} {{ gettext(" Team.") }}</p>
+
+<p><small>{{ gettext("Note: replies to this email address are not monitored.") }}</small></p>

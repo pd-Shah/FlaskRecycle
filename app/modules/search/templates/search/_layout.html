@@ -1,0 +1,20 @@
+{% extends "layouts/page.html" %}
+{% block custom_footer_scripts %}
+<meta name="csrf_token" content="{{ csrf_token()|safe }}">
+<script>
+let csrf_token = "{{ csrf_token() }}";
+let request = superagent;
+
+var app = new Vue({
+  mixins: [searchMixin, actionMixin],
+  el: '#app',
+  data: {
+    searchApi: '/search/?search=true',
+    search: {
+      category: '',
+      country: ''
+    }
+  }
+  });
+</script>
+{% endblock %}

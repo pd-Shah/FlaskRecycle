@@ -1,0 +1,65 @@
+{% extends "emails/_layout.html" %}
+
+<!-- This is the search component -->
+
+<!-- This is the action component; example: New Task -->
+
+{% block action %}
+<p>
+  <a class="button is-primary is-fullwidth" href="{{ url_for('emails.send')}}">{{ gettext("Send Email") }}</a>
+</p>
+{% endblock %}
+
+{% block content %}
+<div class="list">
+{% for email in emails %}
+  <div class="list-item">
+    <div class="level">
+      <div class="level-left">
+        <div class="level-item">
+          <figure class="image is-24x24">
+            <img class="is-rounded" src="{{ url_for('static', filename='images/placeholder.png') }}">
+          </figure>
+        </div>
+        <div class="level-item">
+          <a href="{{ url_for('emails.view', email_id=email.id) }}">
+            {{ email.subject }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{% endblock %}
+{% block sidebar %}
+<nav class="panel is-sidebar-nav">
+  <p class="panel-heading">
+    {{ gettext("Last Contact") }}
+  </p>
+  <a class="panel-block">
+    <span class="panel-icon">
+      <i class="oi ion-ios-time" aria-hidden="true"></i>
+    </span>
+    {{ gettext("Last 90 days") }}
+  </a>
+  <a class="panel-block">
+    <span class="panel-icon">
+      <i class="oi ion-ios-time" aria-hidden="true"></i>
+    </span>
+    {{ gettext("Last 30 days") }}
+  </a>
+  <a class="panel-block">
+    <span class="panel-icon">
+      <i class="oi ion-ios-time" aria-hidden="true"></i>
+    </span>
+    {{ gettext("last 7 days") }}
+  </a>
+  <a class="panel-block">
+    <span class="panel-icon">
+      <i class="oi ion-ios-time" aria-hidden="true"></i>
+    </span>
+    {{ gettext("more than a year") }}
+  </a>
+</nav>
+{% endblock %}

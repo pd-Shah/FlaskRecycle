@@ -1,0 +1,13 @@
+{% macro navigation(items) %}
+<nav class="panel is-sidebar-nav">
+{% for route, name in items %}
+  {% set href = url_for(route) %}
+  <a class="panel-block {% if request.endpoint == route %}active{% endif %}" href="{{ href }}">
+    <span class="panel-icon">
+      <i class="oi ion-android-list" aria-hidden="true"></i>
+    </span>
+    {{ name }}
+  </a>
+{% endfor %}
+</nav>
+{% endmacro %}

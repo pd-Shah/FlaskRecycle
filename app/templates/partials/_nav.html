@@ -1,0 +1,92 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <img src="{{ url_for('static', filename='logo.svg') }}" width="112" height="28">
+    </a>
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbar" class="navbar-menu">
+    <div class="navbar-start">
+      {% if current_user.is_authenticated %}
+      <a class="navbar-item" href="{{ url_for('main.index') }}">
+      {{ gettext("Search") }}
+      </a>
+      <a class="navbar-item" href="{{ url_for('messages.index') }}">
+        {{ gettext("Messages") }}
+      </a>
+      <a class="navbar-item" href="{{ url_for('tasks.index') }}">
+        {{ gettext("Tasks") }}
+      </a>
+      <a class="navbar-item" href="{{ url_for('contacts.index') }}">
+        {{ gettext("Contacts") }}
+      </a>
+      <a class="navbar-item" href="{{ url_for('offers.index') }}">
+        {{ gettext("Offers") }}
+      </a>
+      {% else %}
+      <a class="navbar-item" href="/">
+        {{ gettext("Home") }}
+      </a>
+      <a class="navbar-item" href="{{ url_for('main.about') }}">
+        {{ gettext("About") }}
+      </a>
+      <a class="navbar-item" href="{{ url_for('main.premium') }}">
+        {{ gettext("Premium") }}
+      </a>
+      <a class="navbar-item" href="{{ url_for('main.contact') }}">
+        {{ gettext("Contact") }}
+      </a>
+      {% endif %}
+    </div>
+    {% if current_user.is_authenticated %}
+    <div class="navbar-end">
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          {{ gettext("Account") }} ({{ current_user.first_name }})
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="/account/manage/info">
+            {{ gettext("Settings") }}
+          </a>
+          <a class="navbar-item" href="{{ url_for('account.manage_subscription') }}">
+            {{ gettext("Subscription") }}
+          </a>
+          <a class="navbar-item" href="{{ url_for('account.logout') }}">
+            {{ gettext("Log Out") }}
+          </a>
+        </div>
+      </div>
+    </div>
+    {% else %}
+    <div class="navbar-end">
+      <!-- TODO: Manually overwrite language for current session -->
+      <div class="navbar-item">
+        <a href="?lang=en">EN</a>
+      </div>
+      <div class="navbar-item">
+        <a href="/?lang=de">DE</a>
+      </div>
+      <div class="navbar-item">
+        <a href="?lang=fa">FA</a>
+      </div>
+      <div class="navbar-item">
+        <a href="?lang=zh">CN</a>
+      </div>
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-info" href="{{ url_for('account.register') }}">
+            <strong>{{ gettext("Sign up") }}</strong>
+          </a>
+          <a class="button is-light" href="{{ url_for('account.login') }}">
+            {{ gettext("Log in") }}
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</nav>

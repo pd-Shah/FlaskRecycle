@@ -1,0 +1,49 @@
+{% if contact_id is undefined %}
+<form method="POST" enctype="multipart/form-data" action="{{ url_for(post_url)}}">
+{% else %}
+<form method="POST" enctype="multipart/form-data" action="{{ url_for(post_url, contact_id=contact_id, return_url=return_url)}}">
+{% endif %}
+<div class="columns" id="EmailForm">
+  <div class="column is-9">
+
+    {{ form_email.csrf_token }}
+
+    <div class="field">
+      <label class="label">{{ form_email.email_recipient.label }}</label>
+      <div class="control">
+        {{ form_email.email_recipient(class_="input") }}
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">{{ form_email.subject.label }}</label>
+      <div class="control">
+        {{ form_email.subject(class_="input") }}
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">{{ form_email.message.label }}</label>
+      <div class="control">
+        {{ form_email.message(class_="textarea", style="height:194px;") }}
+      </div>
+    </div>
+
+  </div>
+  <div class="column">
+
+  </div>
+</div>
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-primary">{{ gettext("Send") }}</button>
+    </div>
+    <div class="control">
+      {% if return_url is undefined %}
+      <a class="button is-text" href="{{ url_for(cancel_url)}}">{{ gettext("Cancel") }}</a>
+      {% else %}
+      <a class="button is-text" href="{{ return_url }}">{{ gettext("Cancel") }}</a>
+      {% endif %}
+    </div>
+  </div>
+</form>

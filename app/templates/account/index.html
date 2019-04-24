@@ -1,0 +1,73 @@
+{% extends "account/_layout.html" %}
+{% block title %}{{ gettext("Account") }}{% endblock %}
+{% block subtitle %}{{ gettext("Overview") }}{% endblock %}
+{% block page %}
+<h4 class="title is-4">{{ gettext("Profile Image") }}</h4>
+
+<div class="content">
+  {% if user.profile_image %}
+  <div class="is-profile-image" style="background-image:url('http://recycl-images.s3.amazonaws.com/{{ user.profile_image }}')"></div>
+  <p class="help">{{ gettext("To change your profile image, upload a new one.") }}</p>
+  {% else %}
+  <p>{{ gettext("You haven't uploaded a profile image.") }}</p>
+  {% endif %}
+
+  <form action="/account/manage/info" method="POST" enctype="multipart/form-data">
+    {{ form.csrf_token }}
+    <div class="field">
+      <div class="control">
+        {{ form.profile_image() }}
+      </div>
+    </div>
+    <button class="button is-primary" type="submit">{{ gettext("Upload profile image") }}</button>
+  </form>
+</div>
+
+<h4 class="title is-4">{{ gettext("Personal") }}</h4>
+
+<div class="content">
+  <table>
+    <tbody>
+      <tr>
+        <td class="has-width-200 has-text-weight-bold">{{ gettext("Full name") }}</td>
+        <td>{{ '%s %s' % (user.first_name, user.last_name) }}</td>
+      </tr>
+      <tr>
+        <td class="has-width-200 has-text-weight-bold">{{ gettext("Email address") }}</td>
+        <td>{{ user.email }}</td>
+      </tr>
+      <tr>
+        <td class="has-width-200 has-text-weight-bold">{{ gettext("Account type") }}</td>
+        <td>{{ user.role.name }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h4 class="title is-4">{{ gettext("Company") }}</h4>
+
+<div class="content">
+  <table>
+    <tbody>
+      <tr>
+        <td class="has-width-200 has-text-weight-bold">{{ gettext("Name") }}</td>
+        <td>{{ user.company_name }}</td>
+      </tr>
+      <tr>
+        <td class="has-width-200 has-text-weight-bold">{{ gettext("Address") }}</td>
+        <td>{{ user.company_address }}</td>
+      </tr>
+      <tr>
+        <td class="has-width-200 has-text-weight-bold">{{ gettext("Country") }}</td>
+        <td>{{ user.company_country.value }}</td>
+      </tr>
+      <tr>
+        <td colspan="2">{{ user.company_description }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<a href="{{ url_for('account.change_account_information')}}" class="button is-primary">{{ gettext("Change account information") }}</a>
+
+{% endblock %}

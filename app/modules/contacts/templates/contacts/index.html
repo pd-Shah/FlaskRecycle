@@ -1,0 +1,54 @@
+{% extends "contacts/_layout.html" %}
+{% block title %}Contacts{% endblock %}
+
+<!-- This is the search component -->
+
+{% block search %}
+{% if contacts %}
+<div class="level-item">
+  <div class="field has-addons is-expanded">
+    <div class="control">
+      <input class="input is-small" id="search" v-model="search.keyword" type="text" placeholder="Search in contacts" v-on:keypress:enter="runSearch()">
+    </div>
+    <div class="control">
+      <button class="button is-light is-small" v-on:click="runSearch()">{{ gettext("Search") }}</button>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+{% for contact in followed_users %}
+{% if loop.first %}
+<div class="list">
+{% endif %}
+  <div class="list-item">
+    <div class="level">
+      <div class="level-left">
+        <div class="level-item">
+          <figure class="image is-24x24">
+            <img class="is-rounded" src="{{ url_for('static', filename='images/placeholder.png') }}">
+          </figure>
+        </div>
+        <div class="level-item">
+            <a href="{{ url_for('main.user_profile', user_id=contact.id) }}">{{ contact.first_name }} {{ contact.last_name }}</a>
+        </div>
+        <div class="level-item">
+          <span>{{ contact.company_name }}</span>
+        </div>
+      </div>
+      <div class="level-right">
+        <div class="level-item">
+          <span>{{ countries.get(contact.company_country) }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+{% if loop.last %}
+</div>
+{% endif %}
+{% else %}
+<p class="has-nothing has-text-centered">{{ gettext("You haven't followed anyone yet.") }}</p>
+{% endfor %}
+{% endblock %}

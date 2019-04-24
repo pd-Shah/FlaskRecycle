@@ -1,0 +1,94 @@
+{% extends "layouts/page.html" %}
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="columns">
+    <div class="column is-9">
+
+      <div class="box">
+        <form>
+          <div class="field">
+            <label class="label">{{ gettext("Name") }}</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Your full name">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">{{ gettext("Email") }}</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" type="email" placeholder="Email address" value="hello@">
+              <span class="icon is-small is-left">
+                <i class="io ion-email"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">{{ gettext("Department") }}</label>
+            <div class="control">
+              <div class="select">
+                <select>
+                  <option value="">{{ gettext("Select department") }}</option>
+                  <option value="support">{{ gettext("Support") }}</option>
+                  <option value="marketing">{{ gettext("Marketing") }}</option>
+                  <option value="sales">{{ gettext("Sales") }}</option>
+                  <option value="general">{{ gettext("General") }}</option>
+                  <option value="investors">{{ gettext("Investors") }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">{{ gettext("Message") }}</label>
+            <div class="control">
+              <textarea class="textarea" placeholder={{ gettext("How may we help you?") }}></textarea>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control">
+              <label class="checkbox">
+                <input type="checkbox">
+                {{ gettext("I agree to the") }} <a href="#">{{ gettext("terms and conditions") }}</a>
+              </label>
+            </div>
+          </div>
+
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link">{{ gettext("Submit") }}</button>
+            </div>
+            <div class="control">
+              <button class="button is-text">{{ gettext("Cancel") }}</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+    <div class="column is-3">
+
+      <h3 class="title is-5 has-text-grey-light">{{ gettext("Contact") }}</h3>
+
+      <div class="content">
+        <p>
+          <b>Maralux S.a.r.L. S</b>
+          <br>Wainstroos 1D
+          <br>5445 Schengen, Luxemburg
+        </p>
+        <p>
+          <a href="tel:+49314524520">+49 3145 24520</a>
+          <br><a href="mailto:info@recycl.org">info@recycl.org</a>
+        </p>
+      </div>
+
+      <h3 class="title is-5 has-text-grey-light">{{ gettext("Premium Support") }}</h3>
+
+      <p>{{ gettext("Premium members may contact our special support email ") }} <a href="mailto:premium@recycl.org">premium@recycl.org</a> {{ gettext(" for priority support.") }}</p>
+
+    </div>
+</div>
+{% endblock %}

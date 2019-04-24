@@ -1,0 +1,48 @@
+{% extends "offers/_layout.html" %}
+{% block title %}{{ offer.title }}{% endblock %}
+{% block content %}
+
+<h1 class="title is-3 has-text-grey">{{ offer.summary }}</h1>
+
+<div class="box">
+
+  {% include 'offers/_details.html' %}
+
+  <div class="buttons">
+    {% if offer.published %}
+    <a class="button is-primary" v-on:click="updateDocument('updateStatus', {{ offer.id }}, false)">
+      <span class="icon is-small">
+        <i class="io ion-ios-circle-outline"></i>
+      </span>
+      <span>{{ gettext("Make private") }}</span>
+    </a>
+    {% else %}
+    <a class="button is-primary" v-on:click="updateDocument('updateStatus', {{ offer.id }}, true)">
+      <span class="icon is-small">
+        <i class="io ion-ios-checkmark-outline"></i>
+      </span>
+      <span>{{ gettext("Make public") }}</span>
+    </a>
+    {% endif %}
+    <a class="button is-primary is-outlined" href="{{ url_for('offers.edit', offer_id=offer.id)}}">{{ gettext("Edit offer") }}</a>
+    <a class="button is-text" v-on:click="updateDocument('delete', {{ offer.id }}, 0)">{{ gettext("Delete offer") }}</a>
+  </div>
+
+</div>
+
+<h3 class="title is-3 has-text-grey" style="margin-bottom: 0.5rem;" id="enquiries">{{ gettext("Enquiries") }}</h3>
+
+{% for conv in conversations|sort(attribute='created',reverse=True) %}
+{% if loop.first %}
+<div class="list">
+{% endif %}
+  {% include 'messages/_list.html'%}
+{% if loop.last %}
+</div>
+{% endif %}
+{% else %}
+  <p class="has-nothing has-text-centered"><b>{{ gettext("You have not received any messages related to this offer.") }}</b></p>
+{% endfor %}
+{% endblock %}
+{% block sidebar %}
+{% endblock %}

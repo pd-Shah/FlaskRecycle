@@ -1,0 +1,37 @@
+<footer class="footer">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-3">
+        <ul>
+          <li class="title is-4">{{ gettext("Company") }}</li>
+          <li><a href="{{ url_for('main.about') }}">{{ gettext("About Us") }}</a></li>
+          <li><a href="{{ url_for('main.contact') }}">{{ gettext("Contact Us") }} </a></li>
+          <li><a href="{{ url_for('main.privacy') }}">{{ gettext("Privacy") }}</a></li>
+          <li><a href="{{ url_for('main.tos') }}">{{ gettext("Terms of Service") }}</a></li>
+        </ul>
+      </div>
+      <div class="column is-6">
+        <div class="content">
+          <p>
+            <b>{{ gettext("Recycle") }}</b> {{ gettext(" is the world's no-fuss (plastic-) recycling market place, enabling business from all over the world, to easily source competitively priced recycled material, without language barrier.") }}
+          </p>
+          <img src="{{ url_for('static', filename='logo.svg') }}" style="max-width:220px">
+        </div>
+      </div>
+      <div class="column is-3">
+        <div class="content">
+          <p>
+            <b>Maralux S.a.r.L. S</b>
+            <br>Wainstroos 1D
+            <br>5445 Schengen
+            <br>Luxemburg
+          </p>
+          <p>
+            <a href="tel:+49314524520">+49 3145 24520</a>
+            <br><a href="mailto:info@recycl.org">info@recycl.org</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

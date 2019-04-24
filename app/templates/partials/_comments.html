@@ -1,0 +1,46 @@
+<h3 class="title is-3 has-text-grey-light" id="comments">{{ gettext("Comments") }}</h3>
+
+{% for comment in comments %}
+{% if loop.first %}
+  <div class="list">
+{% endif %}
+    <div class="list-item" id="comment{{ comment.id }}">
+      <article class="media">
+        <div class="media-left">
+          <figure class="image is-24x24">
+             <img class="is-rounded" src="{{ url_for('static', filename='images/placeholder.png') }}">
+          </figure>
+        </div>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>{{ current_user.first_name}}</strong> <small>{{ comment.created.strftime('%d.%m.%Y') }}</small>
+              <br>
+              {{ comment.comment }}
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+{% if loop.last %}
+  </div>
+{% endif %}
+{% endfor %}
+
+<form method="POST" action="/account/{{ module }}/{{ related }}/comment">
+
+  {{ form_comment.csrf_token }}
+
+  <div class="field">
+    <div class="control">
+      {{ form_comment.comment(class_="textarea", style="height:80px;") }}
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-primary">{{ gettext("Comment") }}</button>
+    </div>
+  </div>
+
+</form>

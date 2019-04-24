@@ -1,0 +1,120 @@
+{% extends "tasks/_layout.html" %}
+{% block title %}Task{% endblock %}
+{% block content %}
+
+<div class="box">
+  <h3 class="title is-3 has-text-grey">
+    <span class="icon">
+      {% if task.status != 6 %}
+        <i class="io ion-ios-circle-outline" v-on:click="updateDocument('updateStatus', {{ task.id }}, 6)"></i>
+      {% else %}
+        <i class="io ion-ios-checkmark-outline" v-on:click="updateDocument('updateStatus', {{ task.id }}, 5)"></i>
+      {% endif %}
+    </span>
+    &nbsp;{{ task.summary }}
+  </h3>
+  <h4 class="subtitle is-5 has-text-grey-light">{{ gettext("Added:") }} {{ task.created.strftime('%d.%m.%Y') }} {% if task.due is not none %}{{ gettext("Due on") }} {{ task.due }}{% endif %}</h4>
+  <div class="columns">
+    <div class="column is-10">
+
+      <div class="content minimum-height-150">
+        <p>{{ task.description }}</p>
+      </div>
+
+      <div class="buttons">
+        {% if task.status != 6 %}
+        <a class="button is-primary" v-on:click="updateDocument('updateStatus', {{ task.id }}, 6)">
+          <span class="icon is-small">
+            <i class="io ion-ios-circle-outline"></i>
+          </span>
+          <span>{{ gettext("Mark done") }}</span>
+        </a>
+        {% else %}
+        <a class="button is-primary" v-on:click="updateDocument('updateStatus', {{ task.id }}, 5)">
+          <span class="icon is-small">
+            <i class="io ion-ios-checkmark-outline"></i>
+          </span>
+          <span>{{ gettext("Mark for review") }}</span>
+        </a>
+        {% endif %}
+        <a class="button is-primary is-outlined" href="{{ url_for('tasks.edit', task_id=task.id)}}">{{ gettext("Edit Task") }}</a>
+        <a class="button is-text" v-on:click="updateDocument('deleteTask', {{ task.id }}, 0)">{{ gettext("Delete") }}</a>
+      </div>
+    </div>
+    <div class="column is-2">
+      <div class="label-item has-tag">
+        <label class="label">{{ gettext("Priority") }}</label>
+        <span class="tag has-priority-{{ task.priority }}">{{ priority_dict.get(task.priority) }}</span>
+      </div>
+
+      <div class="label-item has-tag">
+        <label class="label">{{ gettext("Status") }}</label>
+        <span class="tag has-status-{{ task.status }}">{{ status_dict.get(task.status) }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+  {% with module='tasks', related=task.id %}
+    {% include 'partials/_comments.html' %}
+  {% endwith %}
+
+{% endblock %}
+{% block sidebar %}
+<div class="label-item has-list">
+  <label class="label">{{ gettext("Related Contacts") }}</label>
+  {% for contact in task._contacts %}
+  <nav class="level" style="width: 100%;">
+    <div class="level-left">
+      <div class="level-item">
+        <span class="icon is-small">
+          <i class="oi ion-android-contact" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="level-item">
+        <p>
+          <a href="{{ url_for('contacts.view', contact_id=contact.id)}}">{{ contact.first_name }}</a>
+        </p>
+      </div>
+    </div>
+    <div class="level-right">
+      <div class="level-item">
+        <button class="delete is-small is-pulled-right" v-on:click="updateDocument('relatedContactRemove', {{ task.id }}, {{ contact.id }})"></button>
+      </div>
+    </div>
+  </nav>
+  {% else %}
+  <nav class="level" style="width: 100%;">
+    <div class="level-left">
+      <div class="level-item">
+        <span class="icon is-small">
+          <i class="oi ion-android-contact" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="level-item">
+        <p>
+          {{ gettext("Unassigned") }}
+        </p>
+      </div>
+    </div>
+  </nav>
+  {% endfor %}
+  <form method="POST" action="{{ url_for('tasks.assign', task_id=task.id)}}">
+  {{ form_task.csrf_token }}
+    <div class="field has-addons">
+      <div class="control is-expanded">
+        <div class="select is-fullwidth">
+          <select name="contact_id" id="related">
+            {% for contact in contacts %}
+              <option value="{{ contact.id }}">{{ contact.first_name }} {{ contact.last_name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      <div class="control">
+        <button type="submit" action="addContact" class="button is-light">{{ gettext("Add") }}</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

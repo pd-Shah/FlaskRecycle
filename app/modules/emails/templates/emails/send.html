@@ -1,0 +1,10 @@
+{% extends "emails/_layout.html" %}
+{% block subtitle %}{{ gettext("Send a new email") }}{% endblock %}
+{% block content %}
+{% with post_url='emails.send', cancel_url='emails.index' %}
+    {% include 'emails/_form.html' ignore missing with context %}
+{% endwith %}
+{% endblock %}
+{% block sidebar %}
+<p>{{ gettext("In the future you'll be able to select templates and schedule your email.") }}</p>
+{% endblock %} %}

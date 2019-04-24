@@ -1,0 +1,38 @@
+{% extends "offers/_layout.html" %}
+{% block action %}
+<div class="buttons">
+  <a href="{{ url_for('offers.add_matching') }}" class="button is-primary">{{ gettext("New Offer Matching") }}</a>
+  <a href="{{ url_for('offers.index') }}" class="button is-text">{{ gettext("Offers") }}</a>
+</div>
+{% endblock %}
+{% block content %}
+<div class="content">
+  <p class="help">Offers Matching sends you an email, whenever a new Offer, that matches your criteria, has been published.</p>
+</div>
+{% for matching in offers_matchings %}
+{% if loop.first %}
+<div class="list">
+{% endif %}
+  <div class="list-item" id="offer_{{ matching.id }}">
+    <div class="level">
+      <div class="level-left">
+        <div class="level-item">
+          <span>
+            {{ rec_category.get(matching.category) }}
+          </span>
+        </div>
+        <div class="level-item">
+          <span class="has-text-grey-light">
+            <small>{% if matching.updated is not none %}{{ gettext("Updated:") }} {{ matching.updated.strftime('%d.%m.%Y') }}{% else %}{{ gettext("Added:") }} {{ matching.created.strftime('%d.%m.%Y') }}{% endif %}</small>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+{% if loop.last %}
+</div>
+{% endif %}
+{% else %}
+<p class="has-nothing has-text-centered">{{ gettext("You haven't added offer matching yet.") }}</p>
+{% endfor %}
+{% endblock %}

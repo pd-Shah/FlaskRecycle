@@ -1,0 +1,63 @@
+<form method="POST" action="{{ url_for(post_url, offer_id=offer_id) }}" enctype="multipart/form-data">
+  <div class="columns" id="taskForm">
+    <div class="column is-9">
+
+      <div class="box">
+        {{ form.csrf_token }}
+
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">{{ form.category.label }}</label>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  {{ form.category(class_="") }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="field">
+              <label class="label">{{ form.condition.label }}</label>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  {{ form.condition(class_="") }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">{{ form.target_market.label }}</label>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  {{ form.target_market(class_="input") }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-primary">{{ gettext("Save") }}</button>
+        </div>
+        <div class="control">
+          {% if return_url %}
+          <a class="button is-text" href="{{ return_url }}">{{ gettext("Cancel") }}</a>
+          {% elif offer_id is not none %}
+          <a class="button is-text" href="{{ url_for(cancel_url, offer_id=offer_id)}}">{{ gettext("Cancel") }}</a>
+          {% else %}
+          <a class="button is-text" href="{{ url_for(cancel_url)}}">{{ gettext("Cancel") }}</a>
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</form>

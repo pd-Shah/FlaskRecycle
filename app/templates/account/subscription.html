@@ -1,0 +1,73 @@
+{% extends "account/_layout.html" %}
+{% block subtitle %}Recycl Premium Subscription{% endblock %}
+{% block page %}
+
+<script src="https://js.stripe.com/v3"></script>
+
+<table class="comparison">
+  <thead>
+    <tr>
+      <td class="type"></td>
+      <td class="standard">{{ gettext("Standard") }}</td>
+      <td class="premium">{{ gettext("Premium") }}</td>
+    </tr>
+  <tbody>
+    <tr>
+      <td class="type has-text-weight-bold">{{ gettext("Conversations") }}</td>
+      <td class="standard">{{ gettext("5 total") }}</td>
+      <td class="premium has-text-weight-bold">{{ gettext("Unlimited") }}</td>
+    </tr>
+    <tr>
+      <td class="type has-text-weight-bold">{{ gettext("Offers") }}</td>
+      <td class="standard">{{ gettext("5 total") }}</td>
+      <td class="premium has-text-weight-bold">{{ gettext("Unlimited") }}</td>
+    </tr>
+    <tr>
+      <td class="type has-text-weight-bold">{{ gettext("Tasks") }}</td>
+      <td class="standard">/</td>
+      <td class="premium has-text-weight-bold">{{ gettext("Yes") }}</td>
+    </tr>
+    <tr>
+      <td class="type has-text-weight-bold">{{ gettext("Followers") }}</td>
+      <td class="standard">/</td>
+      <td class="premium has-text-weight-bold">{{ gettext("Unlimited") }}</td>
+    </tr>
+    <tr>
+      <td class="type has-text-weight-bold">{{ gettext("Subscription") }}</td>
+      <td class="standard">FREE</td>
+      <td class="premium has-text-weight-bold">10€ / {{ gettext("Month") }}</td>
+    </tr>
+    <tr>
+      <td class="type"></td>
+      <td class="standard"></td>
+      <td class="premium">
+        <a id="checkout-button-plan_EvxFlwpirIpwh8" role="link" class="button is-fullwidth has-text-white">{{ gettext("Subscribe Now") }}</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="content">
+  <div id="error-message"></div>
+</div>
+
+<script>
+  var stripe = Stripe('pk_test_r73tXs5Jnqqg9kYmSs7G9sYs');
+
+  var checkoutButton = document.getElementById('checkout-button-plan_EvxFlwpirIpwh8');
+  checkoutButton.addEventListener('click', function () {
+    stripe.redirectToCheckout({
+      items: [{plan: 'plan_EvxFlwpirIpwh8', quantity: 1}],
+      successUrl: 'http://127.0.0.1:5000/account/manage/subscription/success',
+      cancelUrl: 'http://127.0.0.1:5000/account/manage/subscription/cancel',
+      customerEmail: '{{ current_user.email }}'
+    })
+    .then(function (result) {
+      if (result.error) {
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+</script>
+{% endblock %}

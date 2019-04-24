@@ -1,0 +1,62 @@
+{% extends "account/_layout.html" %}
+{% block subtitle %}Change account information{% endblock %}
+{% block page %}
+<form method="POST" action="">
+
+  {{ form.csrf_token }}
+
+  <h4 class="title is-4">{{ gettext("Personal") }}</h4>
+
+  <div class="field">
+    <label class="label">{{ form.first_name.label }}</label>
+    <div class="control">
+      {{ form.first_name(class_="input") }}
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">{{ form.last_name.label }}</label>
+    <div class="control">
+      {{ form.last_name(class_="input") }}
+    </div>
+  </div>
+
+  <h4 class="title is-4" style="margin-top: 2rem;">{{ gettext("Company") }}</h4>
+
+  <div class="field">
+    <label class="label">{{ form.company_name.label }}</label>
+    <div class="control">
+      {{ form.company_name(class_="input") }}
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">{{ form.company_address.label }}</label>
+    <div class="control">
+      {{ form.company_address(class_="input") }}
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">{{ form.company_country.label }}</label>
+    <div class="control is-expanded">
+      <div class="select is-fullwidth">
+        {{ form.company_country(class_="input") }}
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">{{ form.company_description.label }}</label>
+    <div class="control">
+      {{ form.company_description(class_="input") }}
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-primary">{{ gettext("Update account information") }}</button>
+    </div>
+  </div>
+</form>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "layouts/account.html" %}
+{% block title %}Emails{% endblock %}
+{% block custom_footer_scripts %}
+<meta name="csrf_token" content="{{ csrf_token()|safe }}">
+<script>
+let csrf_token = "{{ csrf_token() }}";
+let request = superagent;
+
+var app = new Vue({
+  mixins: [searchMixin],
+  el: '#app',
+  data: {
+    searchApi: '/account/forms/?search=true',
+    search: {
+      assigned: '',
+      priority: '',
+      category: '',
+    }
+  }
+  });
+</script>
+{% endblock %}

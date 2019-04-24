@@ -1,0 +1,7 @@
+{% extends "tasks/_layout.html" %}
+{% block subtitle %}Edit task{% endblock %}
+{% block content %}
+{% with post_url='tasks.edit', cancel_url='tasks.view' %}
+    {% include 'tasks/_form.html' ignore missing with context %}
+{% endwith %}
+{% endblock %}

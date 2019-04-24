@@ -1,0 +1,1540 @@
+# German translations for PROJECT.
+# Copyright (C) 2019 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2019-04-22 22:59+0430\n"
+"PO-Revision-Date: 2019-04-22 23:01+0430\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: de\n"
+"Language-Team: de <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: app/account/forms.py:28 app/account/forms.py:47 app/account/forms.py:131
+#: app/account/forms.py:160 app/admin/forms.py:68
+#: app/templates/account/logged_out/login.html:23
+msgid "Password"
+msgstr ""
+
+#: app/account/forms.py:30
+msgid "Keep me logged in"
+msgstr ""
+
+#: app/account/forms.py:31 app/templates/account/logged_out/register.html:10
+#: app/templates/partials/_nav.html:82
+msgid "Log in"
+msgstr ""
+
+#: app/account/forms.py:36 app/account/forms.py:67 app/admin/forms.py:50
+#: app/templates/admin/registered_users.html:44
+msgid "First name"
+msgstr ""
+
+#: app/account/forms.py:40 app/account/forms.py:70 app/admin/forms.py:53
+#: app/templates/admin/registered_users.html:45
+msgid "Last name"
+msgstr ""
+
+#: app/account/forms.py:43 app/account/forms.py:100 app/account/forms.py:111
+#: app/admin/forms.py:56 app/templates/main/contact.html:19
+msgid "Email"
+msgstr ""
+
+#: app/account/forms.py:50
+msgid "Passwords must match"
+msgstr ""
+
+#: app/account/forms.py:52 app/admin/forms.py:73
+msgid "Confirm password"
+msgstr ""
+
+#: app/account/forms.py:54 app/templates/account/logged_out/login.html:42
+msgid "Register"
+msgstr ""
+
+#: app/account/forms.py:74 app/templates/account/index.html:51
+#: app/templates/macros/form_macros.html:124 app/templates/main/contact.html:12
+msgid "Name"
+msgstr ""
+
+#: app/account/forms.py:78 app/templates/account/index.html:55
+msgid "Address"
+msgstr ""
+
+#: app/account/forms.py:82 app/templates/account/index.html:59
+msgid "Country"
+msgstr ""
+
+#: app/account/forms.py:85 app/models/contact.py:18 app/models/offers.py:129
+msgid "Description"
+msgstr ""
+
+#: app/account/forms.py:88
+msgid "Update"
+msgstr ""
+
+#: app/account/forms.py:95 app/templates/account/index.html:22
+msgid "Upload"
+msgstr ""
+
+#: app/account/forms.py:103 app/account/forms.py:122
+msgid "Reset password"
+msgstr ""
+
+#: app/account/forms.py:115 app/account/forms.py:145
+msgid "New password"
+msgstr ""
+
+#: app/account/forms.py:118 app/account/forms.py:134 app/account/forms.py:148
+#: app/admin/forms.py:71
+msgid "Passwords must match."
+msgstr ""
+
+#: app/account/forms.py:121 app/account/forms.py:137 app/account/forms.py:151
+msgid "Confirm new password"
+msgstr ""
+
+#: app/account/forms.py:126
+msgid "Unknown email address."
+msgstr ""
+
+#: app/account/forms.py:138
+msgid "Set password"
+msgstr ""
+
+#: app/account/forms.py:142
+msgid "Old password"
+msgstr ""
+
+#: app/account/forms.py:152 app/templates/account/change_password.html:28
+msgid "Update password"
+msgstr ""
+
+#: app/account/forms.py:157 app/admin/forms.py:24
+msgid "New email"
+msgstr ""
+
+#: app/account/forms.py:161 app/admin/forms.py:27
+#: app/templates/account/change_email.html:25
+msgid "Update email"
+msgstr ""
+
+#: app/account/forms.py:165 app/admin/forms.py:31 app/admin/forms.py:63
+msgid "Email already registered."
+msgstr ""
+
+#: app/account/logic.py:30
+msgid "User profile has been updated"
+msgstr ""
+
+#: app/account/logic.py:32
+msgid "Permission denied"
+msgstr ""
+
+#: app/account/views.py:56
+msgid "You are now logged in. Welcome back!"
+msgstr ""
+
+#: app/account/views.py:59 app/account/views.py:236
+msgid "Invalid email or password."
+msgstr ""
+
+#: app/account/views.py:80 app/account/views.py:260
+msgid "Confirm Your Account"
+msgstr ""
+
+#: app/account/views.py:84 app/account/views.py:232
+msgid "A confirmation link has been sent to {}."
+msgstr ""
+
+#: app/account/views.py:95
+msgid "You have been logged out."
+msgstr ""
+
+#: app/account/views.py:142
+msgid "Reset Your Password"
+msgstr ""
+
+#: app/account/views.py:147
+msgid "A password reset link has been sent to {}."
+msgstr ""
+
+#: app/account/views.py:162
+msgid "Invalid email address."
+msgstr ""
+
+#: app/account/views.py:165 app/account/views.py:205
+msgid "Your password has been updated."
+msgstr ""
+
+#: app/account/views.py:168
+msgid "The password reset link is invalid or has expired."
+msgstr ""
+
+#: app/account/views.py:208
+msgid "Original password is invalid."
+msgstr ""
+
+#: app/account/views.py:226
+msgid "Confirm Your New Email"
+msgstr ""
+
+#: app/account/views.py:245
+msgid "Your email address has been updated."
+msgstr ""
+
+#: app/account/views.py:247 app/account/views.py:279
+msgid "The confirmation link is invalid or has expired."
+msgstr ""
+
+#: app/account/views.py:265
+msgid "A new confirmation link has been sent to {}."
+msgstr ""
+
+#: app/account/views.py:277
+msgid "Your account has been confirmed."
+msgstr ""
+
+#: app/account/views.py:292
+msgid "You are already logged in."
+msgstr ""
+
+#: app/account/views.py:300
+msgid "You have already joined."
+msgstr ""
+
+#: app/account/views.py:310
+msgid ""
+"Your password has been set. After you log in, you can go to the \"Your "
+"Account\" page to review your account information and settings."
+msgstr ""
+
+#: app/account/views.py:317
+msgid ""
+"The confirmation link is invalid or has expired. Another invite email "
+"with a new link has been sent to you."
+msgstr ""
+
+#: app/account/views.py:329 app/admin/views.py:81
+msgid "You Are Invited To Join"
+msgstr ""
+
+#: app/admin/forms.py:40
+msgid "Update role"
+msgstr ""
+
+#: app/admin/forms.py:59
+msgid "Invite"
+msgstr ""
+
+#: app/admin/forms.py:76
+msgid "Create"
+msgstr ""
+
+#: app/admin/views.py:53
+msgid "User {} successfully created"
+msgstr ""
+
+#: app/admin/views.py:88
+msgid "User {} successfully invited"
+msgstr ""
+
+#: app/admin/views.py:132
+msgid "Email for user {} successfully changed to {}."
+msgstr ""
+
+#: app/admin/views.py:145
+msgid ""
+"You cannot change the type of your own account. Please ask another "
+"administrator to do this."
+msgstr ""
+
+#: app/admin/views.py:160
+msgid "Role for user {} successfully changed to {}."
+msgstr ""
+
+#: app/admin/views.py:183
+msgid ""
+"You cannot delete your own account.Please ask another administrator to do"
+" this."
+msgstr ""
+
+#: app/admin/views.py:191
+#, python-format
+msgid "Successfully deleted user %s."
+msgstr ""
+
+#: app/models/comment.py:12 app/templates/partials/_comments.html:42
+msgid "Comment"
+msgstr ""
+
+#: app/models/contact.py:11
+msgid "First Name"
+msgstr ""
+
+#: app/models/contact.py:12
+msgid "Last Name"
+msgstr ""
+
+#: app/models/contact.py:13
+#: app/modules/contacts/templates/contacts/_form.html:97
+msgid "Organisation"
+msgstr ""
+
+#: app/models/contact.py:14
+msgid "Title"
+msgstr ""
+
+#: app/models/contact.py:15
+msgid "EMail"
+msgstr ""
+
+#: app/models/contact.py:16
+msgid "Phone"
+msgstr ""
+
+#: app/models/contact.py:17
+#: app/modules/contacts/templates/contacts/_form.html:40
+#: app/modules/contacts/templates/contacts/_form.html:75
+msgid "Mobile"
+msgstr ""
+
+#: app/models/email.py:15
+msgid "Recipient Name"
+msgstr ""
+
+#: app/models/email.py:18
+msgid "Recipient Email"
+msgstr ""
+
+#: app/models/email.py:22 app/models/message.py:28
+msgid "Subject"
+msgstr ""
+
+#: app/models/email.py:26 app/models/message.py:49
+#: app/templates/main/contact.html:45
+msgid "Message"
+msgstr ""
+
+#: app/models/offers.py:10
+msgid "Select Category"
+msgstr ""
+
+#: app/models/offers.py:11 app/models/offers.py:31 app/models/offers.py:57
+msgid "other"
+msgstr ""
+
+#: app/models/offers.py:12
+msgid "ABS"
+msgstr ""
+
+#: app/models/offers.py:13
+msgid "Acrylic"
+msgstr ""
+
+#: app/models/offers.py:14
+msgid "EPS"
+msgstr ""
+
+#: app/models/offers.py:15
+msgid "EVA"
+msgstr ""
+
+#: app/models/offers.py:16
+msgid "HDPE"
+msgstr ""
+
+#: app/models/offers.py:17
+msgid "HIPS"
+msgstr ""
+
+#: app/models/offers.py:18
+msgid "LDPE"
+msgstr ""
+
+#: app/models/offers.py:19
+msgid "LLDPE"
+msgstr ""
+
+#: app/models/offers.py:20
+msgid "Nylon"
+msgstr ""
+
+#: app/models/offers.py:21
+msgid "PA"
+msgstr ""
+
+#: app/models/offers.py:22
+msgid "PC"
+msgstr ""
+
+#: app/models/offers.py:23
+msgid "PET PETE"
+msgstr ""
+
+#: app/models/offers.py:24
+msgid "PP"
+msgstr ""
+
+#: app/models/offers.py:25
+msgid "PPRC"
+msgstr ""
+
+#: app/models/offers.py:26
+msgid "PS"
+msgstr ""
+
+#: app/models/offers.py:27
+msgid "PVC"
+msgstr ""
+
+#: app/models/offers.py:28
+msgid "Tires"
+msgstr ""
+
+#: app/models/offers.py:30
+msgid "Select Condition"
+msgstr ""
+
+#: app/models/offers.py:32
+msgid "Baled"
+msgstr ""
+
+#: app/models/offers.py:33
+msgid "Clean flake"
+msgstr ""
+
+#: app/models/offers.py:34
+msgid "Colored"
+msgstr ""
+
+#: app/models/offers.py:35
+msgid "Densified"
+msgstr ""
+
+#: app/models/offers.py:36
+msgid "Fiber"
+msgstr ""
+
+#: app/models/offers.py:37
+msgid "Loose"
+msgstr ""
+
+#: app/models/offers.py:38
+msgid "Lump"
+msgstr ""
+
+#: app/models/offers.py:39
+msgid "Mixed"
+msgstr ""
+
+#: app/models/offers.py:40
+msgid "Off spec"
+msgstr ""
+
+#: app/models/offers.py:41
+msgid "Pellet"
+msgstr ""
+
+#: app/models/offers.py:42
+msgid "Regrind"
+msgstr ""
+
+#: app/models/offers.py:43
+msgid "Rolls"
+msgstr ""
+
+#: app/models/offers.py:44
+msgid "Virgin"
+msgstr ""
+
+#: app/models/offers.py:45
+msgid "Prime"
+msgstr ""
+
+#: app/models/offers.py:46
+msgid "Masterbatch"
+msgstr ""
+
+#: app/models/offers.py:47
+msgid "Compound"
+msgstr ""
+
+#: app/models/offers.py:50
+msgid "Select Unit"
+msgstr ""
+
+#: app/models/offers.py:51
+msgid "Lbs"
+msgstr ""
+
+#: app/models/offers.py:52
+msgid "MT"
+msgstr ""
+
+#: app/models/offers.py:53
+msgid "Kg"
+msgstr ""
+
+#: app/models/offers.py:56
+msgid "Select Terms"
+msgstr ""
+
+#: app/models/offers.py:58
+msgid "EXW"
+msgstr ""
+
+#: app/models/offers.py:59
+msgid "FCA"
+msgstr ""
+
+#: app/models/offers.py:60
+msgid "FAS"
+msgstr ""
+
+#: app/models/offers.py:61
+msgid "FOB"
+msgstr ""
+
+#: app/models/offers.py:62
+msgid "CFR"
+msgstr ""
+
+#: app/models/offers.py:63
+msgid "CIF"
+msgstr ""
+
+#: app/models/offers.py:64
+msgid "DAF"
+msgstr ""
+
+#: app/models/offers.py:65
+msgid "DES"
+msgstr ""
+
+#: app/models/offers.py:66
+msgid "DEQ"
+msgstr ""
+
+#: app/models/offers.py:67
+msgid "DDU"
+msgstr ""
+
+#: app/models/offers.py:70
+msgid "Select Payment Method"
+msgstr ""
+
+#: app/models/offers.py:71
+#: app/modules/contacts/templates/contacts/_form.html:41
+#: app/modules/contacts/templates/contacts/_form.html:76
+msgid "Other"
+msgstr ""
+
+#: app/models/offers.py:72
+msgid "L/C"
+msgstr ""
+
+#: app/models/offers.py:73
+msgid "Cash"
+msgstr ""
+
+#: app/models/offers.py:93
+msgid "What are you selling?"
+msgstr ""
+
+#: app/models/offers.py:96 app/models/offers.py:179
+msgid "Category"
+msgstr ""
+
+#: app/models/offers.py:100 app/models/offers.py:183
+#: app/modules/messages/templates/messages/conversation.html:80
+#: app/modules/offers/templates/offers/_details.html:68
+msgid "Condition"
+msgstr ""
+
+#: app/models/offers.py:104
+#: app/modules/messages/templates/messages/conversation.html:72
+#: app/modules/offers/templates/offers/_details.html:60
+msgid "Quantity"
+msgstr ""
+
+#: app/models/offers.py:107
+msgid "Unit"
+msgstr ""
+
+#: app/models/offers.py:111
+msgid "Price per Unit"
+msgstr ""
+
+#: app/models/offers.py:114
+msgid "Pricing Terms"
+msgstr ""
+
+#: app/models/offers.py:118
+msgid "Location"
+msgstr ""
+
+#: app/models/offers.py:121
+#: app/modules/messages/templates/messages/conversation.html:88
+#: app/modules/offers/templates/offers/_details.html:76
+msgid "Payment"
+msgstr ""
+
+#: app/models/offers.py:125 app/models/offers.py:187
+#: app/modules/offers/templates/offers/_details.html:84
+msgid "Target Market"
+msgstr ""
+
+#: app/models/offers.py:133
+#: app/modules/offers/templates/offers/_details.html:92
+msgid "Published"
+msgstr ""
+
+#: app/models/task.py:12 app/models/task.py:18
+msgid "Select Priority"
+msgstr ""
+
+#: app/models/task.py:13
+msgid "Later"
+msgstr ""
+
+#: app/models/task.py:14
+msgid "Low"
+msgstr ""
+
+#: app/models/task.py:15
+msgid "Normal"
+msgstr ""
+
+#: app/models/task.py:16
+msgid "High"
+msgstr ""
+
+#: app/models/task.py:19
+msgid "New"
+msgstr ""
+
+#: app/models/task.py:20
+msgid "In Progress"
+msgstr ""
+
+#: app/models/task.py:21
+msgid "Waiting"
+msgstr ""
+
+#: app/models/task.py:22
+msgid "Under review"
+msgstr ""
+
+#: app/models/task.py:23
+msgid "Done"
+msgstr ""
+
+#: app/models/task.py:24
+msgid "Cancelled"
+msgstr ""
+
+#: app/models/task.py:58
+msgid "Summary"
+msgstr ""
+
+#: app/models/task.py:66
+msgid "Due"
+msgstr ""
+
+#: app/models/task.py:69 app/modules/tasks/templates/tasks/view.html:46
+msgid "Priority"
+msgstr ""
+
+#: app/models/task.py:74 app/modules/tasks/templates/tasks/view.html:51
+msgid "Status"
+msgstr ""
+
+#: app/models/task.py:82
+msgid "Assigned User"
+msgstr ""
+
+#: app/models/task.py:90
+msgid "Related Contact"
+msgstr ""
+
+#: app/modules/comments/logic.py:23
+msgid "A new comment has been added"
+msgstr ""
+
+#: app/modules/contacts/logic.py:37
+msgid "A new contact has been added."
+msgstr ""
+
+#: app/modules/contacts/templates/contacts/_form.html:39
+#: app/modules/contacts/templates/contacts/_form.html:74
+msgid "Office"
+msgstr ""
+
+#: app/modules/contacts/templates/contacts/_form.html:56
+#: app/modules/contacts/templates/contacts/_form.html:91
+#: app/modules/contacts/templates/contacts/_form.html:118
+#: app/modules/tasks/templates/tasks/view.html:115
+msgid "Add"
+msgstr ""
+
+#: app/modules/contacts/templates/contacts/add.html:8
+#: app/modules/offers/templates/offers/_form_offer.html:129
+#: app/modules/offers/templates/offers/_form_offer_matching.html:48
+#: app/modules/tasks/templates/tasks/_form.html:66
+msgid "Save"
+msgstr ""
+
+#: app/modules/contacts/templates/contacts/add.html:11
+#: app/modules/emails/templates/emails/_form.html:43
+#: app/modules/emails/templates/emails/_form.html:45
+#: app/modules/offers/templates/offers/_form_offer.html:133
+#: app/modules/offers/templates/offers/_form_offer.html:135
+#: app/modules/offers/templates/offers/_form_offer.html:137
+#: app/modules/offers/templates/offers/_form_offer_matching.html:52
+#: app/modules/offers/templates/offers/_form_offer_matching.html:54
+#: app/modules/offers/templates/offers/_form_offer_matching.html:56
+#: app/modules/tasks/templates/tasks/_form.html:70
+#: app/modules/tasks/templates/tasks/_form.html:72
+#: app/modules/tasks/templates/tasks/_form.html:74
+#: app/templates/account/logged_out/login.html:34
+#: app/templates/main/contact.html:65
+msgid "Cancel"
+msgstr ""
+
+#: app/modules/contacts/templates/contacts/index.html:14
+#: app/modules/search/templates/search/_search.html:38
+#: app/modules/search/templates/search/_search.html:67
+msgid "Search"
+msgstr ""
+
+#: app/modules/contacts/templates/contacts/index.html:52
+msgid "You haven't followed anyone yet."
+msgstr ""
+
+#: app/modules/contacts/templates/contacts/view.html:17
+#: app/modules/tasks/templates/tasks/index.html:30
+msgid "You haven't added any tasks yet."
+msgstr ""
+
+#: app/modules/contacts/templates/contacts/view.html:26
+msgid "Add Task"
+msgstr ""
+
+#: app/modules/contacts/templates/contacts/view.html:44
+#: app/modules/offers/templates/offers/public/view.html:28
+#: app/modules/offers/templates/offers/public/view.html:73
+msgid "Send Message"
+msgstr ""
+
+#: app/modules/contacts/templates/contacts/view.html:52
+msgid "Unfollow"
+msgstr ""
+
+#: app/modules/emails/logic.py:28
+msgid "New email saved to outbox, scheduled to be send."
+msgstr ""
+
+#: app/modules/emails/views.py:56
+msgid "Sending email to {}"
+msgstr ""
+
+#: app/modules/emails/templates/emails/_form.html:39
+msgid "Send"
+msgstr ""
+
+#: app/modules/emails/templates/emails/index.html:9
+msgid "Send Email"
+msgstr ""
+
+#: app/modules/emails/templates/emails/index.html:38
+msgid "Last Contact"
+msgstr ""
+
+#: app/modules/emails/templates/emails/index.html:44
+msgid "Last 90 days"
+msgstr ""
+
+#: app/modules/emails/templates/emails/index.html:50
+msgid "Last 30 days"
+msgstr ""
+
+#: app/modules/emails/templates/emails/index.html:56
+msgid "last 7 days"
+msgstr ""
+
+#: app/modules/emails/templates/emails/index.html:62
+msgid "more than a year"
+msgstr ""
+
+#: app/modules/emails/templates/emails/send.html:2
+msgid "Send a new email"
+msgstr ""
+
+#: app/modules/emails/templates/emails/send.html:9
+msgid "In the future you'll be able to select templates and schedule your email."
+msgstr ""
+
+#: app/modules/messages/templates/messages/conversation.html:19
+msgid "You - "
+msgstr ""
+
+#: app/modules/messages/templates/messages/conversation.html:25
+msgid "To see the latest messages, refresh with "
+msgstr ""
+
+#: app/modules/messages/templates/messages/conversation.html:40
+msgid "Add response"
+msgstr ""
+
+#: app/modules/messages/templates/messages/conversation.html:59
+msgid "Offer by "
+msgstr ""
+
+#: app/modules/messages/templates/messages/conversation.html:64
+#: app/modules/offers/templates/offers/_details.html:52
+msgid "Price"
+msgstr ""
+
+#: app/modules/messages/templates/messages/conversation.html:96
+msgid "Terms"
+msgstr ""
+
+#: app/modules/messages/templates/messages/conversation.html:104
+msgid "Open Offer"
+msgstr ""
+
+#: app/modules/messages/templates/messages/index.html:12
+msgid "You haven't send or received any messages."
+msgstr ""
+
+#: app/modules/offers/templates/offers/_details.html:95
+msgid "Updated"
+msgstr ""
+
+#: app/modules/offers/templates/offers/_form_offer.html:118
+msgid "Picture"
+msgstr ""
+
+#: app/modules/offers/templates/offers/_form_offer.html:122
+msgid ""
+"Allowed: JPG, PNG, GIF; To replace an existing image, simply upload a new"
+" one."
+msgstr ""
+
+#: app/modules/offers/templates/offers/add.html:2
+msgid "Create a new offer"
+msgstr ""
+
+#: app/modules/offers/templates/offers/add_matching.html:2
+msgid "Create a new Offer Matching"
+msgstr ""
+
+#: app/modules/offers/templates/offers/edit.html:2
+#: app/modules/offers/templates/offers/view.html:27
+msgid "Edit offer"
+msgstr ""
+
+#: app/modules/offers/templates/offers/edit_matching.html:2
+msgid "Edit Offer Matching"
+msgstr ""
+
+#: app/modules/offers/templates/offers/index.html:13
+msgid "New Offer"
+msgstr ""
+
+#: app/modules/offers/templates/offers/index.html:14
+msgid "Offer Matching"
+msgstr ""
+
+#: app/modules/offers/templates/offers/index.html:35
+msgid "Quantity:"
+msgstr ""
+
+#: app/modules/offers/templates/offers/index.html:40
+#: app/modules/offers/templates/offers/index_matching.html:24
+#: app/modules/tasks/templates/tasks/_list_item.html:19
+msgid "Updated:"
+msgstr ""
+
+#: app/modules/offers/templates/offers/index.html:40
+#: app/modules/offers/templates/offers/index_matching.html:24
+#: app/modules/tasks/templates/tasks/view.html:16
+msgid "Added:"
+msgstr ""
+
+#: app/modules/offers/templates/offers/index.html:48
+msgid "PUBLIC"
+msgstr ""
+
+#: app/modules/offers/templates/offers/index.html:64
+msgid "You haven't added any offers yet."
+msgstr ""
+
+#: app/modules/offers/templates/offers/index.html:65
+msgid "Any offers you publish, automatically appear on "
+msgstr ""
+
+#: app/modules/offers/templates/offers/index_matching.html:2
+msgid "Recycling"
+msgstr ""
+
+#: app/modules/offers/templates/offers/index_matching.html:5
+msgid "New Offer Matching"
+msgstr ""
+
+#: app/modules/offers/templates/offers/index_matching.html:6
+#: app/templates/main/premium.html:29 app/templates/partials/_nav.html:25
+msgid "Offers"
+msgstr ""
+
+#: app/modules/offers/templates/offers/index_matching.html:34
+msgid "You haven't added offer matching yet."
+msgstr ""
+
+#: app/modules/offers/templates/offers/view.html:17
+msgid "Make private"
+msgstr ""
+
+#: app/modules/offers/templates/offers/view.html:24
+msgid "Make public"
+msgstr ""
+
+#: app/modules/offers/templates/offers/view.html:28
+msgid "Delete offer"
+msgstr ""
+
+#: app/modules/offers/templates/offers/view.html:33
+msgid "Enquiries"
+msgstr ""
+
+#: app/modules/offers/templates/offers/view.html:44
+msgid "You have not received any messages related to this offer."
+msgstr ""
+
+#: app/modules/offers/templates/offers/public/view.html:12
+msgid "Send a Message"
+msgstr ""
+
+#: app/modules/offers/templates/offers/public/view.html:23
+msgid "Details related to this offer, will be forwarded to the recipient."
+msgstr ""
+
+#: app/modules/offers/templates/offers/public/view.html:37
+msgid "Seller"
+msgstr ""
+
+#: app/modules/offers/templates/offers/public/view.html:63
+#: app/templates/main/user_profile.html:57
+msgid "an hour ago"
+msgstr ""
+
+#: app/modules/offers/templates/offers/public/view.html:75
+msgid "Edit this offer"
+msgstr ""
+
+#: app/modules/offers/templates/offers/public/view.html:79
+msgid "Register for free"
+msgstr ""
+
+#: app/modules/offers/templates/offers/public/view.html:79
+msgid "to see contact details and send messages."
+msgstr ""
+
+#: app/modules/search/forms.py:10
+msgid "Search course"
+msgstr ""
+
+#: app/modules/search/templates/search/results.html:61
+#: app/templates/main/index.html:81 app/templates/main/premium.html:51
+#: app/templates/main/premium.html:54
+msgid "Sign-Up"
+msgstr ""
+
+#: app/modules/search/templates/search/results.html:62
+#: app/templates/main/index.html:82
+msgid "It only takes 2 seconds!"
+msgstr ""
+
+#: app/modules/tasks/forms.py:22
+msgid "Search task summary"
+msgstr ""
+
+#: app/modules/tasks/logic.py:59
+msgid "Contact {} associated with Task"
+msgstr ""
+
+#: app/modules/tasks/logic.py:73
+msgid "Task has been updated"
+msgstr ""
+
+#: app/modules/tasks/logic.py:82 app/modules/tasks/logic.py:86
+msgid "{} related to task"
+msgstr ""
+
+#: app/modules/tasks/logic.py:95 app/modules/tasks/logic.py:99
+msgid "{} removed from task"
+msgstr ""
+
+#: app/modules/tasks/views.py:99
+msgid "A new task has been added."
+msgstr ""
+
+#: app/modules/tasks/views.py:114
+msgid "This Task will be related to {}"
+msgstr ""
+
+#: app/modules/tasks/templates/tasks/_list_item.html:19
+msgid "Added"
+msgstr ""
+
+#: app/modules/tasks/templates/tasks/del_update.html:9
+msgid ""
+"You can enable additional features such as email forwarding once the form"
+" has been created."
+msgstr ""
+
+#: app/modules/tasks/templates/tasks/index.html:14
+msgid "New Task"
+msgstr ""
+
+#: app/modules/tasks/templates/tasks/view.html:16
+msgid "Due on"
+msgstr ""
+
+#: app/modules/tasks/templates/tasks/view.html:30
+msgid "Mark done"
+msgstr ""
+
+#: app/modules/tasks/templates/tasks/view.html:37
+msgid "Mark for review"
+msgstr ""
+
+#: app/modules/tasks/templates/tasks/view.html:40
+msgid "Edit Task"
+msgstr ""
+
+#: app/modules/tasks/templates/tasks/view.html:41
+msgid "Delete"
+msgstr ""
+
+#: app/modules/tasks/templates/tasks/view.html:65
+msgid "Related Contacts"
+msgstr ""
+
+#: app/modules/tasks/templates/tasks/view.html:96
+msgid "Unassigned"
+msgstr ""
+
+#: app/templates/account/.manage.html:14 app/templates/account/_layout.html:15
+#: app/templates/account/index.html:30 app/templates/admin/manage_user.html:26
+msgid "Full name"
+msgstr ""
+
+#: app/templates/account/.manage.html:15 app/templates/account/_layout.html:16
+#: app/templates/account/index.html:34 app/templates/admin/manage_user.html:27
+#: app/templates/admin/registered_users.html:46
+msgid "Email address"
+msgstr ""
+
+#: app/templates/account/.manage.html:16 app/templates/account/_layout.html:17
+#: app/templates/account/index.html:38 app/templates/admin/manage_user.html:28
+#: app/templates/admin/registered_users.html:47
+msgid "Account type"
+msgstr ""
+
+#: app/templates/account/.manage.html:20 app/templates/partials/_nav.html:46
+msgid "Account"
+msgstr ""
+
+#: app/templates/account/.manage.html:25
+msgid "Change Your Email"
+msgstr ""
+
+#: app/templates/account/.manage.html:28 app/templates/account/index.html:5
+msgid "Manage your account settings and change your login information."
+msgstr ""
+
+#: app/templates/account/change_account_information.html:8
+#: app/templates/account/index.html:8
+msgid "Personal"
+msgstr ""
+
+#: app/templates/account/change_account_information.html:24
+#: app/templates/account/index.html:45 app/templates/partials/_footer.html:6
+msgid "Company"
+msgstr ""
+
+#: app/templates/account/change_account_information.html:58
+msgid "Update account information"
+msgstr ""
+
+#: app/templates/account/change_email.html:5
+msgid ""
+"In order to update your email, you have to verify the new email. Once "
+"you've updated your email, please check your inbox for further "
+"instructions."
+msgstr ""
+
+#: app/templates/account/index.html:2
+msgid "Account information"
+msgstr ""
+
+#: app/templates/account/index.html:14
+msgid "To change your profile image, upload a new one."
+msgstr ""
+
+#: app/templates/account/index.html:16
+msgid "You haven't uploaded a profile image."
+msgstr ""
+
+#: app/templates/account/index.html:69
+msgid "Change account information"
+msgstr ""
+
+#: app/templates/account/email/change_email.html:1
+#: app/templates/account/email/confirm.html:1
+#: app/templates/account/email/invite.html:1
+#: app/templates/account/email/reset_password.html:1
+msgid "Dear "
+msgstr ""
+
+#: app/templates/account/email/change_email.html:3
+msgid "To confirm your new email address "
+msgstr ""
+
+#: app/templates/account/email/change_email.html:4
+msgid " click here."
+msgstr ""
+
+#: app/templates/account/email/change_email.html:7
+#: app/templates/account/email/confirm.html:10
+#: app/templates/account/email/invite.html:7
+#: app/templates/account/email/reset_password.html:5
+msgid ""
+"Alternatively, you can paste the following link in your browser's address"
+" bar: "
+msgstr ""
+
+#: app/templates/account/email/change_email.html:11
+#: app/templates/account/email/confirm.html:14
+#: app/templates/account/email/invite.html:13
+#: app/templates/account/email/reset_password.html:11
+msgid "Sincerely, "
+msgstr ""
+
+#: app/templates/account/email/change_email.html:13
+#: app/templates/account/email/confirm.html:16
+#: app/templates/account/email/invite.html:15
+#: app/templates/account/email/reset_password.html:13
+msgid "The "
+msgstr ""
+
+#: app/templates/account/email/change_email.html:13
+#: app/templates/account/email/confirm.html:16
+#: app/templates/account/email/invite.html:15
+msgid " Team."
+msgstr ""
+
+#: app/templates/account/email/change_email.html:15
+#: app/templates/account/email/confirm.html:18
+#: app/templates/account/email/invite.html:17
+#: app/templates/account/email/reset_password.html:15
+msgid "Note: replies to this email address are not monitored."
+msgstr ""
+
+#: app/templates/account/email/confirm.html:3
+msgid "Welcome to "
+msgstr ""
+
+#: app/templates/account/email/confirm.html:6
+msgid "To confirm your account, please "
+msgstr ""
+
+#: app/templates/account/email/confirm.html:7
+msgid " click here"
+msgstr ""
+
+#: app/templates/account/email/invite.html:3
+msgid "You are invited to join "
+msgstr ""
+
+#: app/templates/account/email/invite.html:5
+msgid "To set your password, please "
+msgstr ""
+
+#: app/templates/account/email/invite.html:5
+#: app/templates/account/email/reset_password.html:3
+msgid "click here"
+msgstr ""
+
+#: app/templates/account/email/invite.html:11
+msgid "Once completed, please log in as "
+msgstr ""
+
+#: app/templates/account/email/invite.html:11
+msgid " with the password you set."
+msgstr ""
+
+#: app/templates/account/email/reset_password.html:3
+msgid "To reset your password, "
+msgstr ""
+
+#: app/templates/account/email/reset_password.html:9
+msgid "If you have not requested a password reset, simply ignore this message. "
+msgstr ""
+
+#: app/templates/account/email/reset_password.html:13
+msgid " Team"
+msgstr ""
+
+#: app/templates/account/logged_out/.register.html:8
+msgid "Create an account"
+msgstr ""
+
+#: app/templates/account/logged_out/join_invite.html:8
+msgid "Create your password"
+msgstr ""
+
+#: app/templates/account/logged_out/login.html:41
+msgid "Don't have Recycl account?"
+msgstr ""
+
+#: app/templates/account/logged_out/login.html:43
+msgid "Forgot password?"
+msgstr ""
+
+#: app/templates/account/logged_out/register.html:9
+msgid "Already have a Recycl account?"
+msgstr ""
+
+#: app/templates/account/logged_out/reset_password.html:7
+msgid "Reset your password"
+msgstr ""
+
+#: app/templates/account/logged_out/unconfirmed.html:8
+msgid "You need to confirm your account before continuing."
+msgstr ""
+
+#: app/templates/account/logged_out/unconfirmed.html:10
+msgid "When you created an account, you should have received an email from us at "
+msgstr ""
+
+#: app/templates/account/logged_out/unconfirmed.html:11
+msgid " with a link to confirm your email address."
+msgstr ""
+
+#: app/templates/account/logged_out/unconfirmed.html:15
+msgid "I didn't receive an email!"
+msgstr ""
+
+#: app/templates/account/logged_out/unconfirmed.html:17
+msgid "No problem! Just click the button below and we'll send you another one."
+msgstr ""
+
+#: app/templates/account/logged_out/unconfirmed.html:18
+msgid "Resend confirmation email"
+msgstr ""
+
+#: app/templates/admin/index.html:27
+msgid "Admin Dashboard"
+msgstr ""
+
+#: app/templates/admin/manage_user.html:37
+msgid "Back to all users"
+msgstr ""
+
+#: app/templates/admin/manage_user.html:41
+msgid "View and manage"
+msgstr ""
+
+#: app/templates/admin/manage_user.html:41
+msgid "s account."
+msgstr ""
+
+#: app/templates/admin/manage_user.html:53
+msgid "This action is permanent"
+msgstr ""
+
+#: app/templates/admin/manage_user.html:55
+msgid ""
+"Deleting a user account is not a reversible change. Any information "
+"associated with this account will be removed, and cannot be recovered."
+msgstr ""
+
+#: app/templates/admin/manage_user.html:64
+msgid "I understand that this action cannot be undone."
+msgstr ""
+
+#: app/templates/admin/manage_user.html:68
+msgid "Delete this user"
+msgstr ""
+
+#: app/templates/admin/new_user.html:13
+#: app/templates/admin/registered_users.html:8
+msgid "Back to dashboard"
+msgstr ""
+
+#: app/templates/admin/new_user.html:16
+msgid "Add New User"
+msgstr ""
+
+#: app/templates/admin/new_user.html:17
+msgid "Create a new user account"
+msgstr ""
+
+#: app/templates/admin/registered_users.html:11
+msgid "Registered Users"
+msgstr ""
+
+#: app/templates/admin/registered_users.html:13
+msgid "View and manage currently registered users."
+msgstr ""
+
+#: app/templates/admin/registered_users.html:20
+#: app/templates/admin/registered_users.html:24
+msgid "All account types"
+msgstr ""
+
+#: app/templates/errors/403.html:5
+msgid "Forbidden!"
+msgstr ""
+
+#: app/templates/errors/404.html:4
+msgid "Page not found"
+msgstr ""
+
+#: app/templates/errors/404.html:7
+msgid "Things break sometimes. What did you expect?"
+msgstr ""
+
+#: app/templates/main/contact.html:29
+msgid "Department"
+msgstr ""
+
+#: app/templates/main/contact.html:33
+msgid "Select department"
+msgstr ""
+
+#: app/templates/main/contact.html:34
+msgid "Support"
+msgstr ""
+
+#: app/templates/main/contact.html:35
+msgid "Marketing"
+msgstr ""
+
+#: app/templates/main/contact.html:36
+msgid "Sales"
+msgstr ""
+
+#: app/templates/main/contact.html:37
+msgid "General"
+msgstr ""
+
+#: app/templates/main/contact.html:38
+msgid "Investors"
+msgstr ""
+
+#: app/templates/main/contact.html:47
+msgid "How may we help you?"
+msgstr ""
+
+#: app/templates/main/contact.html:55
+msgid "I agree to the"
+msgstr ""
+
+#: app/templates/main/contact.html:55
+msgid "terms and conditions"
+msgstr ""
+
+#: app/templates/main/contact.html:62
+msgid "Submit"
+msgstr ""
+
+#: app/templates/main/contact.html:74 app/templates/partials/_nav.html:38
+msgid "Contact"
+msgstr ""
+
+#: app/templates/main/contact.html:88
+msgid "Premium Support"
+msgstr ""
+
+#: app/templates/main/contact.html:90
+msgid "Premium members may contact our special support email "
+msgstr ""
+
+#: app/templates/main/contact.html:90
+msgid " for priority support."
+msgstr ""
+
+#: app/templates/main/index.html:9
+msgid "The Worldwide (Plastic-)Recycling Marketplace"
+msgstr ""
+
+#: app/templates/main/index.html:12
+msgid "Buy, Sell and Discover new Business Opportunities"
+msgstr ""
+
+#: app/templates/main/index.html:58
+msgid "offers"
+msgstr ""
+
+#: app/templates/main/index.html:63
+msgid "Buy"
+msgstr ""
+
+#: app/templates/main/index.html:65 app/templates/main/index.html:67
+msgid "Sell"
+msgstr ""
+
+#: app/templates/main/premium.html:8
+msgid ""
+"Join Recycle, the world's recycling market place, and expand your "
+"recycling business to new markets. Premium subscribers benefit from "
+"hands-on support, and maximum reach, with unlimited messages, offers and "
+"built-in tasks, to stay on top of everything."
+msgstr ""
+
+#: app/templates/main/premium.html:19
+msgid "Standard"
+msgstr ""
+
+#: app/templates/main/premium.html:20 app/templates/partials/_nav.html:35
+msgid "Premium"
+msgstr ""
+
+#: app/templates/main/premium.html:24 app/templates/partials/_nav.html:16
+msgid "Messages"
+msgstr ""
+
+#: app/templates/main/premium.html:25 app/templates/main/premium.html:30
+msgid "5 total"
+msgstr ""
+
+#: app/templates/main/premium.html:26 app/templates/main/premium.html:31
+#: app/templates/main/premium.html:41
+msgid "Unlimited"
+msgstr ""
+
+#: app/templates/main/premium.html:34 app/templates/partials/_nav.html:19
+msgid "Tasks"
+msgstr ""
+
+#: app/templates/main/premium.html:35 app/templates/main/premium.html:40
+msgid "None"
+msgstr ""
+
+#: app/templates/main/premium.html:36
+msgid "Built"
+msgstr ""
+
+#: app/templates/main/premium.html:39
+msgid "Followers"
+msgstr ""
+
+#: app/templates/main/premium.html:44
+msgid "Subscription"
+msgstr ""
+
+#: app/templates/main/premium.html:46
+msgid "Monthly"
+msgstr ""
+
+#: app/templates/main/user_profile.html:32
+msgid "Profile"
+msgstr ""
+
+#: app/templates/main/user_profile.html:67
+msgid "To send a message to "
+msgstr ""
+
+#: app/templates/main/user_profile.html:67
+msgid "open one of the offers."
+msgstr ""
+
+#: app/templates/main/user_profile.html:78
+msgid ""
+"Users that you follow, appear in your contact list. You may optionally be"
+" notified, about new offers, from that user."
+msgstr ""
+
+#: app/templates/main/user_profile.html:80
+msgid "You must be logged-in, to see user profiles. "
+msgstr ""
+
+#: app/templates/main/user_profile.html:80
+msgid "Register now"
+msgstr ""
+
+#: app/templates/main/user_profile.html:80
+msgid "It's free, and only takes a few seconds."
+msgstr ""
+
+#: app/templates/partials/_comments.html:1
+msgid "Comments"
+msgstr ""
+
+#: app/templates/partials/_footer.html:7
+msgid "About Us"
+msgstr ""
+
+#: app/templates/partials/_footer.html:8
+msgid "Contact Us"
+msgstr ""
+
+#: app/templates/partials/_footer.html:9
+msgid "Privacy"
+msgstr ""
+
+#: app/templates/partials/_footer.html:10
+msgid "Terms of Service"
+msgstr ""
+
+#: app/templates/partials/_footer.html:16
+msgid "Recycle"
+msgstr ""
+
+#: app/templates/partials/_footer.html:16
+msgid ""
+" is the world's no-fuss (plastic-) recycling market place, enabling "
+"business from all over the world, to easily source competitively priced "
+"recycled material, without language barrier."
+msgstr ""
+
+#: app/templates/partials/_nav.html:22
+msgid "Contacts"
+msgstr ""
+
+#: app/templates/partials/_nav.html:29
+msgid "Home"
+msgstr ""
+
+#: app/templates/partials/_nav.html:32
+msgid "About"
+msgstr ""
+
+#: app/templates/partials/_nav.html:50
+msgid "Settings"
+msgstr ""
+
+#: app/templates/partials/_nav.html:53
+msgid "Billing"
+msgstr ""
+
+#: app/templates/partials/_nav.html:56
+msgid "Log Out"
+msgstr ""
+
+#: app/templates/partials/_nav.html:79
+msgid "Sign up"
+msgstr ""
+

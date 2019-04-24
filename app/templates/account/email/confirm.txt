@@ -1,0 +1,13 @@
+{{ gettext("Dear ") }} {{ user.full_name() }},
+
+{{ gettext("Welcome to ") }} {{ config.APP_NAME }}!
+
+{{ gettext("To confirm your account, please click on the following link: ") }}
+
+{{ confirm_link }}
+
+{{ gettext("Sincerely, ") }}
+
+{{ gettext("The ") }} {{ config.APP_NAME }} {{ gettext(" Team") }}
+
+{{ gettext("Note: replies to this email address are not monitored.") }}

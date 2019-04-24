@@ -1,0 +1,22 @@
+{% extends "layouts/form.html" %}
+{% block title %}Sign-Up{% endblock %}
+{% block content %}
+<form method="POST" action="/register">
+
+  {% include '/partials/_form.html' %}
+
+  <p>
+    {{ gettext("Already have a Recycl account?") }}
+    <a href="{{ url_for('account.login') }}">{{ gettext("Log in") }}</a>
+  </p>
+
+</form>
+
+<style>
+.hero.is-fullheight {
+  background: url(/static/images/overlay.png);
+  background-size: cover;
+  background-position: center;
+}
+</style>
+{% endblock %}

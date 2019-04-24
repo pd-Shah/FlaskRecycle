@@ -1,0 +1,10 @@
+{% extends "tasks/_layout.html" %}
+{% block title %}Tasks{% endblock %}
+{% block content %}
+<form method="POST" action="/account/tasks/update">
+  {% include 'modules/tasks/_form.html' %}
+</form>
+{% endblock %}
+{% block sidebar %}
+<p>{{ gettext("You can enable additional features such as email forwarding once the form has been created.") }}</p>
+{% endblock %}

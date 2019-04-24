@@ -1,0 +1,138 @@
+<div class="columns" id="contactForm">
+  <div class="column is-9">
+
+    {{ form_contact.csrf_token }}
+
+    <div class="columns">
+      <div class="column">
+        <div class="field">
+          <label class="label">{{ form_contact.first_name.label }}</label>
+          <div class="control">
+            {{ form_contact.first_name(class_="input") }}
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="field">
+          <label class="label">{{ form_contact.last_name.label }}</label>
+          <div class="control">
+            {{ form_contact.last_name(class_="input") }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h4 class="title is-4">Communication</h4>
+
+    <nav class="level">
+      <div class="level-left">
+      </div>
+      <div class="level-right">
+        <div class="level-item">
+          <label class="label">{{ form_contact.phone.label }}</label>
+        </div>
+        <div class="level-item">
+          <div class="field">
+            <div class="control">
+              <span class="select">
+                <select>
+                  <option>{{ gettext("Office") }}</option>
+                  <option>{{ gettext("Mobile") }}</option>
+                  <option>{{ gettext("Other") }}</option>
+                </select>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="level-item">
+          <div class="field">
+            <div class="control">
+              {{ form_contact.phone(class_="input") }}
+            </div>
+          </div>
+        </div>
+        <div class="level-item">
+          <a class="button is-light">
+            {{ gettext("Add") }}
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <nav class="level">
+      <div class="level-left">
+      </div>
+      <div class="level-right">
+        <div class="level-item">
+          <label class="label">{{ form_contact.email.label }}</label>
+        </div>
+        <div class="level-item">
+          <div class="field">
+            <div class="control">
+              <span class="select">
+                <select>
+                  <option>{{ gettext("Office") }}</option>
+                  <option>{{ gettext("Mobile") }}</option>
+                  <option>{{ gettext("Other") }}</option>
+                </select>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="level-item">
+          <div class="field">
+            <div class="control">
+              {{ form_contact.email(class_="input") }}
+            </div>
+          </div>
+        </div>
+        <div class="level-item">
+          <a class="button is-light">
+            {{ gettext("Add") }}
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <h4 class="title is-4">{{ gettext("Organisation") }}</h4>
+
+    <div class="columns">
+      <div class="column">
+        <div class="field">
+          <div class="control">
+            {{ form_contact.title(class_="input", placeholder="Title") }}
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="level">
+          <div class="level-item">
+            <div class="field">
+              <div class="control is-expanded">
+                {{ form_contact.organisation(class_="input", placeholder="Company") }}
+              </div>
+            </div>
+          </div>
+          <div class="level-item">
+            <a class="button is-light">
+              {{ gettext("Add") }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add organisation -->
+
+    <div class="field">
+      <label class="label">{{ form_contact.description.label }}</label>
+      <div class="control">
+        {{ form_contact.description(class_="textarea", style="height:194px;") }}
+      </div>
+    </div>
+
+  </div>
+  <div class="column">
+
+  </div>
+</div>

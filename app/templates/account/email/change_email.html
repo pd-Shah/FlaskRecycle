@@ -1,0 +1,15 @@
+<p>{{ gettext("Dear ") }}  {{ user.full_name() }},</p>
+
+<p>{{ gettext("To confirm your new email address ") }}
+  <a href="{{ change_email_link }}">{{ gettext(" click here.") }}</a>
+</p>
+
+<p>{{ gettext("Alternatively, you can paste the following link in your browser's address bar: ") }}</p>
+
+<p>{{ change_email_link }}</p>
+
+<p>{{ gettext("Sincerely, ") }}</p>
+
+<p>{{ gettext("The ") }}  {{ config.APP_NAME }} {{ gettext(" Team.") }}</p>
+
+<p><small>{{ gettext("Note: replies to this email address are not monitored.") }}</small></p>

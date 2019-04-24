@@ -1,0 +1,103 @@
+<div class="content">
+  <p>
+    <span class="icon">
+      <i class="io ion-pin"></i>
+    </span>
+    {{ offer.place_of_delivery }}
+  </p>
+</div>
+
+<div class="columns">
+  <div class="column">
+
+    {% if offer.images %}
+      {% for image in offer.images %}
+        <figure class="image is-1by1" style="background-image: url(http://recycl-images.s3.amazonaws.com/{{ image.image }})">
+        </figure>
+      {% endfor %}
+    {% else %}
+    <figure class="image is-1by1">
+      <img src="/static/images/placeholder.png" alt="Placeholder image">
+    </figure>
+    {% endif %}
+
+    <!--
+
+    <div class="columns" style="margin-top:0.5rem;">
+      <div class="column">
+        <figure class="image is-4by3">
+          <img src="/static/images/placeholder.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="column">
+        <figure class="image is-4by3">
+          <img src="/static/images/placeholder.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="column">
+        <figure class="image is-4by3">
+          <img src="/static/images/placeholder.png" alt="Placeholder image">
+        </figure>
+      </div>
+    </div>
+
+    -->
+
+  </div>
+  <div class="column is-7">
+
+    <ul class="is-key-value-list">
+      <li>
+        <span class="is-key">
+          {{ gettext("Price") }}
+        </span>
+        <span class="is-value">
+          € {{ offer.unit_price }} / {{ rec_unit.get(offer.unit) }} ({{ rec_pricing_terms.get(offer.pricing_terms) }})
+        </span>
+      </li>
+      <li>
+        <span class="is-key">
+          {{ gettext("Quantity") }}
+        </span>
+        <span class="is-value">
+          {{ offer.quantity }} {{ rec_unit.get(offer.unit) }}
+        </span>
+      </li>
+      <li>
+        <span class="is-key">
+          {{ gettext("Condition") }}
+        </span>
+        <span class="is-value">
+          {{ rec_condition.get(offer.condition) }}
+        </span>
+      </li>
+      <li>
+        <span class="is-key">
+          {{ gettext("Payment") }}
+        </span>
+        <span class="is-value">
+          {{ rec_payment.get(offer.payment_method) }}
+        </span>
+      </li>
+      <li>
+        <span class="is-key">
+          {{ gettext("Target Market") }}
+        </span>
+        <span class="is-value">
+          {{ countries.get(offer.taget_market) }}
+        </span>
+      </li>
+      <li>
+        <span class="is-key">
+          {{ gettext("Published") }}
+        </span>
+        <span class="is-value">
+          {% if offer.updated is not none %}{{ offer.updated.strftime('%d.%m.%Y') }} ({{ gettext("Updated") }}){% else %}{{ offer.created.strftime('%d.%m.%Y') }}{% endif %}
+        </span>
+      </li>
+    </ul>
+
+    <p>{{ offer.description }}</p>
+
+  </div>
+</div>

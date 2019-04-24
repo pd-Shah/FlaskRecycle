@@ -1,0 +1,55 @@
+{% extends "layouts/form.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<form method="POST" action="/account/login">
+{{ form.csrf_token }}
+
+  <div class="field">
+    <label class="label">{{ form.email.label }}</label>
+    <div class="control">
+      {{ form.email(class_="input") }}
+    </div>
+  </div>
+
+  {% if form.email.errors %}
+    <ul class=errors>
+    {% for error in form.email.errors %}
+      <li>{{ error }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+
+  <div class="field">
+    <label class="label">{{ gettext("Password") }}</label>
+    <div class="control">
+      {{ form.password(class_="input") }}
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <input type="submit" value="Login" class="button is-primary">
+    </div>
+    <div class="control">
+      <a href="/" class="button is-text">{{ gettext("Cancel") }}</a>
+    </div>
+  </div>
+
+  <hr>
+
+  <p>
+    {{ gettext("Don't have Recycl account?") }}
+    <a href="{{ url_for('account.register') }}">{{ gettext("Register") }}</a>
+    <br><a href="">{{ gettext("Forgot password?") }}</a>
+  </p>
+
+</form>
+
+<style>
+.hero.is-fullheight {
+  background: url(/static/images/overlay.png);
+  background-size: cover;
+  background-position: center;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'search/_layout.html' %}
+
+{% block body %}
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      {% include 'search/_search.html' %}
+    </div>
+  </div>
+</section>
+<section class="section">
+<div class="container">
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class=flashes style="margin-bottom:1rem;">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+  {% for result in results %}
+  {% if loop.first %}
+  <div class="columns is-multiline is-mobile">
+  {% endif %}
+      <div class="column is-3-desktop is-full-mobile">
+        <a href="{{ url_for('offers.view_public', offer_id=result.id) }}">
+          <div class="card">
+            <div class="card-image">
+              {% if result.images %}
+              {% for image in result.images %}
+                <div class="is-offer-image" ></div>
+                <figure class="image is-4by3" style="background-image: url(http://recycl-images.s3.amazonaws.com/{{ image.image }})">
+                </figure>
+              {% endfor %}
+              {% else %}
+              <figure class="image is-4by3">
+                <img src="/static/images/placeholder.png" alt="Placeholder image">
+              </figure>
+              {% endif %}
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <p class="title is-6">
+                    {{ rec_category.get(result.category) }} <small>({{ rec_condition.get(result.condition) }})</small> {{ result.quantity }}{{ rec_unit.get(result.unit) }}
+                  </p>
+                  <p class="subtitle is-7" style="margin-bottom:0.5rem;">{{ result.summary | truncate(20) }}</p>
+                  <p class="">
+                    <span class="icon">
+                      <i class="ion ion-location"></i>
+                    </span>
+                    {{ countries.get(result.author.company_country) }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+{% if loop.last %}
+  </div>
+{% endif %}
+{% else %}
+<p class="has-nothing has-text-centered">
+  <b>{{ gettext("No results found. Try searching with fewer parameters:") }}</b>
+  <br>Retry with {{ rec_category.get(category) }}? <a href="/search/?search=true&category={{ category }}">Search!</a>
+</p>
+{% endfor %}
+</section>
+
+{% endblock %}
+{% block sidebar %}
+
+<h2 class="title is-2" id="signup">{{ gettext("Sign-Up") }}</h2>
+<h3 class="subtitle is-3">{{ gettext("It only takes 2 seconds!") }}</h3>
+
+  <form method="POST" action="/register">
+    {% include '/partials/_form.html' %}
+  </form>
+
+{% endblock %}

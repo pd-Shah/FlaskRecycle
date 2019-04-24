@@ -1,0 +1,68 @@
+{% extends 'layouts/base.html' %}
+
+{% block nav %}
+{% include 'partials/_nav.html' %}
+{% endblock %}
+{% block body %}
+<section class="section">
+  <div class="container">
+
+    {% if self.title() %}<h1 class="title is-3 has-text-grey">{% block title %}{% endblock %}</h1>{% endif %}
+    {% if self.subtitle() %}<h2 class="subtitle is-4 has-text-grey-light">{% block subtitle %}{% endblock %}</h2>{% endif %}
+
+    {% if self.action() %}
+    <nav class="level">
+      <div class="level-left">
+        <div class="level-item">
+          {% block action %}{% endblock %}
+        </div>
+      </div>
+      <div class="level-left">
+        {% if self.search() %}
+          {% block search %}{% endblock %}
+        {% endif %}
+      </div>
+    </nav>
+    {% endif %}
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <div class="has-messages">
+        <div class="content">
+          <div class="notification is-dark">
+          {% for message in messages %}
+            <p>
+              <small>{{ message }}</small>
+            </p>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    {% endwith %}
+
+    <div class="columns">
+      <div class="column">
+        {% block content %}{% endblock %}
+      </div>
+      {% if self.sidebar() %}
+      <div class="column is-3">
+        {% block sidebar %}{% endblock %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="container has-text-centered">
+    <img class="is-bottom-logo" src="{{ url_for('static', filename='logo.svg') }}">
+    </div>
+  </div>
+</section>
+<style>
+#app {
+  min-height: 100vh;
+  background: url(/static/images/overlay.png);
+  background-size: cover;
+  background-position: center;
+}
+</style>
+{% endblock %}

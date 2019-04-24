@@ -1,0 +1,17 @@
+{% extends 'layouts/plain.html' %}
+{% block body %}
+<section class="section">
+  <div class="container">
+    <h1 class="title is-3 has-text-grey">{% block title %}{% endblock %}</h1>
+    <h2 class="subtitle is-4 has-text-grey-light">{% block subtitle %}{% endblock %}</h2>
+    <div class="columns">
+      <div class="column is-9">
+        {% block content %}{% endblock %}
+      </div>
+      <div class="column">
+        {% block sidebar %}{% endblock %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

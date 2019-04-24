@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@vladocar/nanojs": "^1.0.4",
+    "buefy": "^0.7.2",
+    "bulma": "^0.7.4",
+    "choices.js": "^6.0.0",
+    "superagent": "^4.1.0",
+    "tags-input": "^1.1.1",
+    "vue": "^2.6.6"
+  }
+}

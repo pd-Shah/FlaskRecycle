@@ -1,0 +1,43 @@
+{% extends "account/layout_page.html" %}
+{% block title %}Forms{% endblock %}
+{% block subtitle %}{{ gettext("Email TEST") }}{% endblock %}
+{% block content %}
+<form method="POST" action="/account/email/send/">
+  {{ form.csrf_token }}
+
+  <div class="field">
+    <label class="label">{{ form.recipient.label }}</label>
+    <div class="control">
+      {{ form.to(class_="input", value=entry.data.email) }}
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">{{ form.subject.label }}</label>
+    <div class="control">
+      {{ form.subject(class_="input") }}
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">{{ form.message.label }}</label>
+    <div class="control">
+      {{ form.message(class_="textarea") }}
+    </div>
+  </div>
+
+  <!-- RELATED -->
+  {{ form.related(value=entry._id) }}
+  <!-- RELATED -->
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-link">{{ gettext("Submit") }}</button>
+    </div>
+    <div class="control">
+      <a href="#" class="button is-text" onClick="history.go(-1);return true;">{{ gettext("Cancel") }}</a>
+    </div>
+  </div>
+
+</form>
+{% endblock %}
